@@ -57,13 +57,11 @@ local plugins = {
   },
 
   {
-     "folke/noice.nvim",
-  config = function()
-    require "noice".setup({
-      })
-  end,
-  dependencies = {
-      "MunifTanjim/nui.nvim"
+    "VonHeikemen/fine-cmdline.nvim",
+    enabled = true,
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      enabled = true,
     },
   },
 
