@@ -5,46 +5,67 @@
     "exclusive": true,
     "passthrough": false,
     "gtk-layer-shell": true,
-    "height": 50,
-    "modules-left": ["wlr/workspaces","hyprland/window"],
-    "modules-center": ["custom/spotify"],
-    "modules-right": ["custom/pacman","network", "battery","clock","backlight","pulseaudio","pulseaudio#microphone", "tray"],
+    "height": 0,
+    "modules-left": [
+        "clock",
+        "custom/weather",
+        "wlr/workspaces"
+    ],
+    "modules-center": ["hyprland/window"],
+    "modules-right": [
+        "tray",
+        "custom/updates",
+        "custom/language",
+        "battery",
+        "backlight",
+        "pulseaudio",
+        "pulseaudio#microphone"
+    ],
+
     "hyprland/window": {
         "format": "{}"
     },
-
     "wlr/workspaces": {
         "disable-scroll": true,
-        "format": "{icon}",
-        "format-icons": {"1":"", "2" : "", "3": "", "4": "","5": "", "6": "", "7": "","8": "阮","9":"ﭮ"},
-        // "format-icons": {"", "", "", "", "", "", "","阮","ﭮ"},
         "all-outputs": true,
         "on-click": "activate",
-        // "persistent_workspaces": {
-        //     "1": "",
-        //     "2": [],
-        //     "3": [],
-        //     "4": [],
-        //     "5": [],
-        //     "6": [],
-        //     "7": [],
-        //     "8": [],
-        //     "9": [],
-        //     "10": []
-        // }
+        //"format": "{icon}",
+        "persistent_workspaces": {
+            "1": [],
+            "2": [],
+            "3": [],
+            "4": [],
+            "5": [],
+            "6": [],
+            "7": [],
+            "8": [],
+            "9": [],
+            "10": []
+        }
     },
-    
+    "custom/updates": {
+        "format": " {}",
+        "interval": 7200,                     // every two hours
+        "exec": "i=$(checkupdates); echo \"$i\" |wc -l; echo \"$i\" |column -t |tr '\n' '\r'",       // # of updates and tooltip details
+        "exec-if": "exit 0",                  // always run; consider advanced run conditions
+        "on-click": "kitty -e sudo pacman -Syu", // update system
+        "signal": 8
+    },
+   "custom/weather" : {
+        "tooltip" : true,
+        "format" : "{}",
+        "interval" : 30,
+        "exec" : "~/.config/waybar/scripts/waybar-wttr.py",
+        "return-type" : "json"
+    },
     "tray": {
-        "icon-size": 18,
+        "icon-size": 13,
         "spacing": 10
     },
-
     "clock": {
-        "format": "{: %I:%M %p }",
-        "format-alt":"{: %a, %b %e}",
+        "format": "{: %R   %d/%m}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
     },
-
     "backlight": {
         "device": "intel_backlight",
         "format": "{icon} {percent}%",
@@ -53,7 +74,6 @@
         "on-scroll-down": "brightnessctl set 1%-",
         "min-length": 6
     },
-
     "battery": {
         "states": {
             "good": 95,
@@ -66,7 +86,6 @@
         "format-alt": "{time} {icon}",
         "format-icons": ["", "", "", "", "", "", "", "", "", "", ""]
     },
-
     "pulseaudio": {
         "format": "{icon} {volume}%",
         "tooltip": false,
@@ -85,7 +104,6 @@
             "default": ["", "", ""]
         }
     },
-
     "pulseaudio#microphone": {
         "format": "{format_source}",
         "format-source": " {volume}%",
@@ -94,42 +112,5 @@
         "on-scroll-up": "pamixer --default-source -i 5",
         "on-scroll-down": "pamixer --default-source -d 5",
         "scroll-step": 5
-    },
-    
-    "network": {
-        // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": "  {signalStrength}%",
-        "format-ethernet": "{ipaddr}/{cidr} ",
-        "tooltip-format": "{essid} - {ifname} via {gwaddr} ",
-        "format-linked": "{ifname} (No IP) ",
-        "format-disconnected": "Disconnected ⚠",
-        "format-alt": "{ifname}:{essid} {ipaddr}/{cidr}"
-    },
-
-    "bluetooth": {
-	    "format": " {status}",
-	    "format-disabled": "", // an empty format will hide the module
-	    "format-connected": " {num_connections}",
-	    "tooltip-format": "{device_alias}",
-	    "tooltip-format-connected": " {device_enumerate}",
-	    "tooltip-format-enumerate-connected": "{device_alias}"
-    },
-    
-    "custom/spotify": {
-      "exec": "/usr/bin/python3 ~/.config/hypr/mediaplayer.py --player spotify",
-      "format": " {}",
-      "return-type": "json",
-      "on-click": "spotifyctl -q playpause",
-      "on-scroll-up": "spotifyctl -q next",
-      "on-scroll-down": "spotifyctl -q previous"
-     },
-     
-    "custom/pacman": {
-      "format": " {}",
-      "interval" : 2000,
-      "exec" : "checkupdates | wc -l",
-      "exec-if" : "exit 0",
-      "on-click": "alacritty -e paru"
     }
-
 }
