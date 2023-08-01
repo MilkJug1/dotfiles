@@ -9,7 +9,7 @@
     // "margin-right":25,
     "margin-bottom":-11,
     //"margin-top":5,
-    "modules-left": ["wlr/workspaces"],
+    "modules-left": ["tray", "wlr/workspaces"],
     "modules-right": ["temperature","network","battery","custom/ss","custom/cycle_wall","custom/expand","cpu","clock", "memory"],
     "modules-center": ["custom/dynamic_pill"],
     // Modules configuration
@@ -106,7 +106,7 @@
         }
     },
     "tray": {
-        // "icon-size": 21,
+         "icon-size": 21,
         "spacing": 10
     },
     "clock": {
