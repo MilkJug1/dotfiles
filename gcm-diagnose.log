@@ -1,0 +1,191 @@
+﻿Diagnose log at 2023-11-20T03:17:47Z
+
+AppPath: /usr/bin/git-credential-manager
+InstallDir: /usr/lib/share/git-credential-manager-core/
+Version: 2.4.1
+
+------------
+Diagnostic: Environment
+Skipped: False
+Success: True
+Exception: None
+Log:
+OSType: Linux
+OSVersion: Arch Linux
+Reading environment variables... OK
+ Variables:
+DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
+DESKTOP_SESSION=plasmawayland
+XDG_SESSION_PATH=/org/freedesktop/DisplayManager/Session1
+PLASMA_USE_QT_SCALING=1
+LANG=en_US.UTF-8
+HOME=/home/milk
+GIT_TRACE2_PARENT_SID=48361fc4-6be9-4481-a098-0e7ac6f74ac2
+PWD=/home/milk/dotfiles
+SYSTEMD_EXEC_PID=4079
+DISPLAY=:1
+XDG_VTNR=1
+KDE_SESSION_VERSION=5
+JOURNAL_STREAM=8:10751
+QSG_RENDER_LOOP=basic
+XAUTHORITY=/run/user/1000/xauth_PrLTZG
+MOTD_SHOWN=pam
+XDG_CONFIG_DIRS=/home/milk/.config/kdedefaults:/etc/xdg
+PAGER=less
+XDG_DATA_DIRS=/home/milk/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share/:/usr/share/
+MEMORY_PRESSURE_WRITE=c29tZSAyMDAwMDAgMjAwMDAwMAA=
+GTK_RC_FILES=/etc/gtk/gtkrc:/home/milk/.gtkrc:/home/milk/.config/gtkrc
+XDG_RUNTIME_DIR=/run/user/1000
+ALACRITTY_SOCKET=/run/user/1000/Alacritty-wayland-0-76277.sock
+KDE_FULL_SESSION=true
+LOGNAME=milk
+QT_WAYLAND_FORCE_DPI=96
+XDG_SEAT=seat0
+SHLVL=1
+PAM_KWALLET5_LOGIN=/run/user/1000/kwallet5.socket
+XDG_SEAT_PATH=/org/freedesktop/DisplayManager/Seat0
+ALACRITTY_WINDOW_ID=94259864644032
+PATH=/home/milk/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/home/milk/.cache/zsh4humans/v5/fzf/bin
+KDE_APPLICATIONS_AS_SCOPE=1
+XDG_SESSION_ID=2
+LESS=-iRFXMx4
+XDG_SESSION_DESKTOP=KDE
+XCURSOR_THEME=Bibata-Modern-Classic
+MANPATH=/home/milk/.cache/zsh4humans/v5/fzf/man:
+GTK2_RC_FILES=/etc/gtk-2.0/gtkrc:/home/milk/.gtkrc-2.0:/home/milk/.config/gtkrc-2.0
+OLDPWD=/home/milk/.config/nvim
+XCURSOR_SIZE=24
+WAYLAND_DISPLAY=wayland-0
+LS_COLORS=fi=00:mi=00:mh=00:ln=01;36:or=01;31:di=01;34:ow=04;01;34:st=34:tw=04;34:pi=01;33:so=01;33:do=01;33:bd=01;33:cd=01;33:su=01;35:sg=01;35:ca=01;35:ex=01;32:no=38;5;248
+INFOPATH=
+P9K_SSH=0
+QT_AUTO_SCREEN_SCALE_FACTOR=0
+SESSION_MANAGER=local/windowssucksass:@/tmp/.ICE-unix/4042,unix/windowssucksass:/tmp/.ICE-unix/4042
+COLORTERM=truecolor
+_P9K_TTY=/dev/pts/1
+INVOCATION_ID=ffeeca5565e04f479fb3203b2793fe46
+_P9K_SSH_TTY=/dev/pts/1
+P9K_TTY=old
+TERM=alacritty
+MAIL=/var/spool/mail/milk
+WINDOWID=94259864644032
+SHELL=/usr/bin/zsh
+ALACRITTY_LOG=/tmp/Alacritty-76277.log
+MANAGERPID=3880
+LSCOLORS=ExGxDxDxCxDxDxFxFxexEx
+_=/usr/bin/git-credential-manager
+XDG_ACTIVATION_TOKEN=kwin-13
+USER=milk
+XDG_SESSION_CLASS=user
+GPG_TTY=/dev/pts/1
+XDG_CURRENT_DESKTOP=KDE
+MEMORY_PRESSURE_WATCH=/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/plasma-plasmashell.service/memory.pressure
+TREE_COLORS=fi=00:mi=00:mh=00:ln=01;36:or=01;31:di=01;34:ow=01;34:st=34:tw=34:pi=01;33:so=01;33:do=01;33:bd=01;33:cd=01;33:su=01;35:sg=01;35:ca=01;35:ex=01;32
+TERMINFO=/home/milk/.terminfo
+XDG_SESSION_TYPE=wayland
+KDE_SESSION_UID=1000
+
+
+------------
+Diagnostic: File system
+Skipped: False
+Success: True
+Exception: None
+Log:
+Temporary directory is '/tmp/'...
+Checking basic file I/O...
+Writing to temporary file '/tmp/67d04bbca67c2c9a765b22c1'... OK
+Reading from temporary file '/tmp/67d04bbca67c2c9a765b22c1'... OK
+Deleting temporary file '/tmp/67d04bbca67c2c9a765b22c1'... OK
+Testing IFileSystem instance...
+UserHomePath: /home/milk
+UserDataDirectoryPath: /home/milk/.gcm
+GetCurrentDirectory(): /home/milk/dotfiles
+
+------------
+Diagnostic: Networking
+Skipped: False
+Success: True
+Exception: None
+Log:
+Checking networking and HTTP stack...
+Creating HTTP client... OK
+IsNetworkAvailable: True
+Sending HEAD request to http://example.com...Sending HEAD request to https://example.com... OK
+ OK
+Acquiring free TCP port... OK
+Testing local HTTP loopback connections...
+Creating new HTTP listener for http://localhost:37791/... OK
+Waiting for loopback connection... OK
+Writing response... OK
+Waiting for response data... OK
+Loopback connection data OK
+
+------------
+Diagnostic: Git
+Skipped: False
+Success: True
+Exception: None
+Log:
+Getting Git version... OK
+Git version is '2.42.1'
+Locating current repository... OK
+Git repository at '/home/milk/dotfiles/.git'
+Listing all Git configuration... OK
+Git configuration:
+file:/home/milk/.gitconfig	user.email=michael.sagan.crawford@gmail.com
+file:/home/milk/.gitconfig	user.name=MilkJug1
+file:/home/milk/.gitconfig	credential.credentialstore=gpg
+file:/home/milk/.gitconfig	credential.helper=
+file:/home/milk/.gitconfig	credential.helper=/usr/bin/git-credential-manager
+file:/home/milk/.gitconfig	credential.https://dev.azure.com.usehttppath=true
+file:.git/config	core.repositoryformatversion=0
+file:.git/config	core.filemode=true
+file:.git/config	core.bare=false
+file:.git/config	core.logallrefupdates=true
+file:.git/config	remote.origin.url=https://github.com/MilkJug1/dotfiles
+file:.git/config	remote.origin.fetch=+refs/heads/*:refs/remotes/origin/*
+file:.git/config	branch.main.remote=origin
+file:.git/config	branch.main.merge=refs/heads/main
+
+
+------------
+Diagnostic: Credential storage
+Skipped: False
+Success: True
+Exception: None
+Log:
+ICredentialStore instance is of type: CredentialStore
+Writing test credential... OK
+Reading test credential... OK
+Deleting test credential... OK
+
+------------
+Diagnostic: Microsoft authentication (AAD/MSA)
+Skipped: False
+Success: True
+Exception: None
+Log:
+Broker is not enabled.
+Flow type is: Auto
+Gathering MSAL token cache data... OK
+CacheDirectory: /home/milk/.local/.IdentityService
+CacheFileName: msal.cache
+CacheFilePath: /home/milk/.local/.IdentityService/msal.cache
+KeyringCollection: 
+KeyringSchemaName: 
+KeyringSecretLabel: 
+KeyringAttribute1: (,)
+KeyringAttribute2: (,)
+Creating cache helper... OK
+Verifying MSAL token cache persistence... OK
+
+------------
+Diagnostic: GitHub API
+Skipped: False
+Success: True
+Exception: None
+Log:
+Using 'https://github.com/' as API target.
+Querying '/meta' endpoint... OK
+
