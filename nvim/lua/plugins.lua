@@ -34,7 +34,7 @@ return {
 		config = function()
 			require('lualine').setup({
 				icons_enabled = true,
-				theme = 'codedark'
+				theme = 'stealth'
 			})
 		end,
 
@@ -114,7 +114,15 @@ return {
 			"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
 			"MunifTanjim/nui.nvim",
 			-- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
-		}
+		},
+		config = function()
+			require('neo-tree').setup({
+				source_selector = {
+					winbar = true,
+					statusline = false,
+				}
+			})
+		end
 	},
 	{
 		'niuiic/code-shot.nvim',
@@ -133,16 +141,19 @@ return {
 		dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
 	},
 	'smoka7/hop.nvim',
-	{
-		'nvimdev/dashboard-nvim',
-		event = 'VimEnter',
-		dependencies = { 'nvim-tree/nvim-web-devicons' }
-	},
+	-- {
+	-- 	'nvimdev/dashboard-nvim',
+	-- 	event = 'VimEnter',
+	-- 	dependencies = { 'nvim-tree/nvim-web-devicons' }
+	-- },
+	--
 	{
 		"nyoom-engineering/oxocarbon.nvim",
 		priority = 1000,
 		config = function()
-			vim.cmd("colorscheme oxocarbon")
+			-- vim.cmd("colorscheme oxocarbon")
+			vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+			vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 		end
 	},
 
@@ -154,7 +165,14 @@ return {
 		}
 	},
 
-	'rcarriga/nvim-notify',
+	{
+		'rcarriga/nvim-notify',
+		config = function()
+			require('notify').setup({
+				background_colour = "#161616"
+			})
+		end
+	},
 
 	{
 		'folke/noice.nvim',
@@ -166,7 +184,12 @@ return {
 	},
 
 	'embark-theme/vim',
-	'yazeed1s/oh-lucy.nvim',
+	{
+		'yazeed1s/oh-lucy.nvim',
+		config = function()
+			vim.g.oh_lucy_transparent_background = true
+		end
+	},
 	'hoprr/calvera-dark.nvim',
 	'stevearc/dressing.nvim',
 
@@ -184,6 +207,243 @@ return {
 		event = 'InsertEnter',
 	},
 
-	'tiagovla/tokyodark.nvim',
+	{
+		'tiagovla/tokyodark.nvim',
+		config = function()
+			require('tokyodark').setup({
+				transparent_background = true,
+			})
+		end
+
+	},
+
+	{
+		'saecki/crates.nvim',
+		ft = { 'rust', 'toml' },
+		config = function(_, opts)
+			local crates = require('crates')
+			crates.setup(opts)
+			crates.show()
+		end,
+	},
+
+	{
+		"rust-lang/rust.vim",
+		ft = "rust",
+		init = function()
+			vim.g.rustfmt_autosave = 1
+		end
+	},
+
+	{
+		"max397574/better-escape.nvim",
+		config = function()
+			require("better_escape").setup()
+		end,
+	},
+
+	{
+		"utilyre/barbecue.nvim",
+		name = "barbecue",
+		version = "*",
+		dependencies = {
+			"SmiteshP/nvim-navic",
+			"nvim-tree/nvim-web-devicons", -- optional dependency
+		},
+		opts = {
+			-- configurations go here
+		},
+	},
+
+	'rrethy/vim-illuminate',
+
+	{
+		"lukas-reineke/indent-blankline.nvim",
+		main = "ibl",
+		opts = {},
+	},
+
+	'simrat39/symbols-outline.nvim',
+
+	{
+		'rmagatti/goto-preview',
+		config = function()
+			require('goto-preview').setup()
+		end,
+	},
+
+	{
+		'akinsho/toggleterm.nvim',
+		config = true,
+		version = '*',
+	},
+
+	{
+		"iamcco/markdown-preview.nvim",
+		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+		build = "cd app && yarn install",
+		init = function()
+			vim.g.mkdp_filetypes = { "markdown" }
+		end,
+		ft = { "markdown" },
+	},
+
+	{
+		"ziontee113/icon-picker.nvim",
+		dependencies = {
+			'ziontee113/icon-picker.nvim',
+		},
+		config = function()
+			require('icon-picker').setup({
+				disable_legacy_commands = true
+			})
+		end,
+	},
+
+	{
+		"ellisonleao/glow.nvim",
+		config = true,
+		cmd = "Glow"
+	},
+
+	{
+		-- Lazy.nvim
+		"TobinPalmer/Tip.nvim",
+		event = "VimEnter",
+		init = function()
+			-- Default config
+			--- @type Tip.config
+			require("tip").setup({
+				title = "Tip!",
+				url = "https://vtip.43z.one",
+			})
+		end,
+
+	},
+
+	{
+		'rafamadriz/neon'
+	},
+
+	'marko-cerovac/material.nvim',
+	'rockerboo/boo-colorscheme-nvim',
+
+	{
+		"ray-x/aurora",
+		config = function()
+			vim.g.aurora_transparent = 1
+		end,
+	},
+
+	{
+		'ray-x/starry.nvim',
+		config = function()
+			vim.g.starry_italic_comments = true
+			-- vim.g.starry_disable_background = true
+		end,
+	},
+
+
+	'ofirgall/ofirkai.nvim',
+
+	-- 'rrethy/nvim-base16',
+
+	{
+		'bkegley/gloombuddy',
+		dependencies = {
+			'tjdevries/colorbuddy.nvim',
+		}
+	},
+
+	-- 'antonk52/bad-practices.nvim',
+	-- {
+	-- 	"m4xshen/hardtime.nvim",
+	-- 	dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
+	-- 	opts = {}
+	-- },
+
+	{
+		'goolord/alpha-nvim',
+		config = function()
+			require('alpha').setup(require('alpha.themes.dashboard').config)
+		end
+	},
+
+	{
+		"folke/todo-comments.nvim",
+		dependencies = { "nvim-lua/plenary.nvim" },
+	},
+
+	{
+		'oxfist/night-owl.nvim',
+	},
+
+	{
+		'dasupradyumna/midnight.nvim',
+		priority = 1000
+	},
+
+	{
+		"baliestri/aura-theme",
+		priority = 1000,
+		-- config = function(plugin)
+		-- vim.opt.rtp:append(plugin.dir .. "/packages/neovim")
+		-- vim.cmd([[colorscheme aura-dark]])
+		-- end
+	},
+
+	{ 'rose-pine/neovim', name = 'rose-pine' },
+
+	"luckasRanarison/tree-sitter-hypr",
+
+	{
+		'catppuccin/nvim',
+		config = function()
+			require('catppuccin').setup({
+				transparent_background = true,
+			})
+		end
+	},
+
+	{
+		'EdenEast/nightfox.nvim',
+		config = function()
+			require('nightfox').setup({
+				options = {
+					transparent = true,
+				}
+			})
+			vim.cmd("colorscheme duskfox")
+		end
+	},
+
+	{
+		"daschw/leaf.nvim",
+		config = function()
+			require('leaf').setup({
+				transparent = true,
+			})
+		end
+	},
+
+	{
+		'rebelot/kanagawa.nvim',
+		config = function()
+			require('kanagawa').setup({
+				transparent = true,
+			})
+		end
+	},
+
+	{
+		'lunarvim/horizon.nvim',
+	},
+	{
+		"bluz71/vim-moonfly-colors",
+		name = "moonfly",
+		config = function()
+			vim.g.moonflyTransparent = true
+		end
+	},
 
 }

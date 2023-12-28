@@ -3,6 +3,7 @@ require 'globals'
 
 g.mapleader = ' '
 g.maplocalleader = ' '
+-- g.aurora_transparent = 1
 
 o.clipboard = 'unnamedplus'
 
@@ -25,3 +26,12 @@ opt.autoread = true
 opt.autowrite = true
 opt.showcmd = true
 
+
+--vim.cmd("colorscheme duskfox")
+
+--vim.cmd.colorscheme("duskfox")
+
+if vim.g.neovide then
+	vim.g.neovide_transparency = 0.9
+	vim.o.guifont = "envypn-13:h14"
+end
