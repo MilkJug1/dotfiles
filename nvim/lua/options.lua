@@ -32,6 +32,6 @@ opt.showcmd = true
 --vim.cmd.colorscheme("duskfox")
 
 if vim.g.neovide then
-	vim.g.neovide_transparency = 0.9
-	vim.o.guifont = "envypn-13:h14"
+	-- vim.g.neovide_transparency = 0.9
+	vim.o.guifont = "JetBrainsMono Nerd Font"
 end
