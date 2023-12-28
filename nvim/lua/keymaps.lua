@@ -8,8 +8,9 @@ map('n', ';', ':')
 nm('<leader>r', ':Telescope file_browser<cr>', "Telescope File browser")
 -- nm('<leader>ps', require('code-shot').shot(), "Takes a screenshot of whole file")
 map({ 'n', 'v' }, '<leader>ps', require('code-shot').shot)
--- vmap('n', '<leader>ll', require('lazy.manage').run)
+nm('<leader>ll', ':Lazy<cr>', "Run lazy")
 nm('<leader>gg', '<cmd>LazyGit<cr>', "LazyGit")
+nm('<leader>e', ':Neotree<CR>', "Opens Neotree")
 
 -- Telescope mappings
 nm('<leader>tr', '<cmd>Telescope lsp_references<cr>', "LSP References in file")
@@ -19,6 +20,13 @@ nm('<leader>tr', '<cmd>Telescope find_files<cr>', "Find files with Telescope")
 nm('<leader>tk', '<cmd>Telescope keymaps<cr>', 'List all keymaps')
 nm('<leader>nn', '<cmd>Telescope notify<cr>', "Open Notifications")
 nm('<leader>tc', ':Telescope colorscheme<cr>', "Changes Colorscheme")
+
+
+-- Insert Mode bindings 
+im('<C-h>', '<Left>')
+im('<C-j>', '<Down>')
+im('<C-k>', '<Up>')
+im('<C-l>', '<Right>')
 
 -- LSP  Bindings
 -- bufmap('<leader>r', vim.lsp.buf.rename)
@@ -35,6 +43,9 @@ nm("<leader>D", vim.lsp.buf.type_definition, "Goto Type definition")
 nm("<leader>lr", vim.lsp.buf.rename, "LSP Rename")
 nm("<leader>ca", vim.lsp.buf.code_action, "LSP Code Action")
 -- nm("K", vim.lsp.buf.hover(), "LSP Hover")
+-- Symbols outline
+nm('<leader>so', ':SymbolsOutline<cr>', "Opens Symbols Outline UI")
+nm('gP', require('goto-preview').goto_preview_definition, 'Preview Defintion')
 
 
 -- Buffer keymaps
@@ -43,3 +54,29 @@ nm(']b', ':BufferLineCycleNext<cr>', 'Go to the next opened buffer')
 
 -- Clear search
 nm('<leader>bc', ':nohlsearch<cr>', 'Clear Search Register')
+
+-- TODO Multiwindow keymaps
+
+-- Terminal Bindings 
+nm('<leader>tf', ':ToggleTerm<cr>', 'Toggle Term(Floating)')
+nm('<leader>tg', ':ToggleTermToggleAll<cr>', "Toggle Term/Bring Back Previous Session")
+tm('<Esc>', '<C-\\><C-N>')
+
+
+-- Markdown bindings 
+nm('<leader>ms', ':MarkdownPreview<CR>', "MarkdownPreview")
+nm('<leader>md', ':MarkdownPreviewStop<cr>', "Stop Markdown Preview")
+nm("<leader>mt", ":MarkdownPreviewToggle<cr>", 'Toggles MarkdownPreview')
+nm("<leader>mk", ":MarkdownPreview solarized-dark<cr>", "MarkdownPreview with solarized Dark theme")
+
+
+-- TODO-Comments Bindings 
+nm("<leader>tn", require('todo-comments').jump_next, "Jumps to the next Todo comment")
+nm("<leader>tb", require('todo-comments').jump_prev, "Jumps to the previous comment")
+nm('<leader>tt', ":TodoTelescope<cr>", "Opens Telescope for all TODOS")
+--
+-- Icon Picker
+im("<C-i>", ':IconPickerInsert emoji nerd_font alt_font symbols<cr>', "Inserts icon while in Insert Mode")
+nm('<leader>iy', ":IconPickerYank<cr>", "Pick Icon and Yank it to buffer")
+nm("<leader>in", ":IconPickerNormal<cr>", "Pick Icon and insert it into Buffer (Normal Mode)")
+
