@@ -23,6 +23,17 @@ capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 -- 	},
 -- }
 
+-- local cmp_nvim_lsp = require "cmp_nvim_lsp"
+--
+-- require("lspconfig").clangd.setup {
+--   on_attach = on_attach,
+--   capabilities = cmp_nvim_lsp.default_capabilities(),
+--   cmd = {
+--     "clangd",
+--     "--offset-encoding=utf-16",
+--   },
+-- }
+
 
 require('mason').setup()
 require('mason-lspconfig').setup_handlers({
@@ -46,5 +57,16 @@ require('mason-lspconfig').setup_handlers({
 			}
 		}
 
+	end,
+
+	["clangd"] = function()
+		require('lspconfig').clangd.setup {
+			on_attach = on_attach,
+			capabilities = capabilities,
+			cmd = {
+				'clangd',
+				'--offset-encoding=utf-16',
+			},
+		}
 	end
 })
