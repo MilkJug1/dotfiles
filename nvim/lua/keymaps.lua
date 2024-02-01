@@ -67,7 +67,6 @@ nm(']b', ':BufferLineCycleNext<cr>', 'Go to the next opened buffer')
 
 -- Clear search
 nm('<leader>bc', ':nohlsearch<cr>', 'Clear Search Register')
-
 nm("<Esc>", ":noh <CR>", "Clear Highlights");
 -- TODO Multiwindow keymaps
 

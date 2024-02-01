@@ -46,13 +46,14 @@ return {
 
 	{
 		"hrsh7th/nvim-cmp",
-		dependencies = {
-			'L3MON4D3/LuaSnip',
-			'saadparwaiz1/cmp_luasnip',
-			'rafamadriz/friendly-snippets',
+		"hrsh7th/cmp-nvim-lua",
+		"hrsh7th/cmp-buffer",
+		"hrsh7th/cmp-path",
+		'saadparwaiz1/cmp_luasnip',
+		'L3MON4D3/LuaSnip',
+		'hrsh7th/cmp-nvim-lsp',
+		'rafamadriz/friendly-snippets',
 
-			'hrsh7th/cmp-nvim-lsp',
-		},
 	},
 
 	'folke/neodev.nvim',
