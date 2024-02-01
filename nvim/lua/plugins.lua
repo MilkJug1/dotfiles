@@ -216,7 +216,7 @@ return {
 	{
 		'yazeed1s/oh-lucy.nvim',
 		config = function()
-			vim.g.oh_lucy_transparent_background = true
+			-- vim.g.oh_lucy_transparent_background = true
 		end
 	},
 	'hoprr/calvera-dark.nvim',
@@ -360,7 +360,7 @@ return {
 	{
 		"ray-x/aurora",
 		config = function()
-			vim.g.aurora_transparent = 1
+			-- vim.g.aurora_transparent = 1
 		end,
 	},
 
@@ -429,7 +429,7 @@ return {
 		'catppuccin/nvim',
 		config = function()
 			require('catppuccin').setup({
-				transparent_background = true,
+				-- transparent_background = true,
 			})
 		end
 	},
@@ -439,7 +439,7 @@ return {
 		config = function()
 			require('nightfox').setup({
 				options = {
-					transparent = true,
+					-- transparent = true,
 				}
 			})
 			vim.cmd("colorscheme duskfox")
@@ -450,7 +450,7 @@ return {
 		"daschw/leaf.nvim",
 		config = function()
 			require('leaf').setup({
-				transparent = true,
+				-- transparent = true,
 			})
 		end
 	},
@@ -459,7 +459,7 @@ return {
 		'rebelot/kanagawa.nvim',
 		config = function()
 			require('kanagawa').setup({
-				transparent = true,
+				-- transparent = true,
 			})
 		end
 	},
@@ -471,7 +471,7 @@ return {
 		"bluz71/vim-moonfly-colors",
 		name = "moonfly",
 		config = function()
-			vim.g.moonflyTransparent = true
+			-- vim.g.moonflyTransparent = true
 		end
 	},
 
