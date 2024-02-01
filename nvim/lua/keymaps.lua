@@ -26,6 +26,8 @@ nm('<leader>tr', '<cmd>Telescope find_files<cr>', "Find files with Telescope")
 nm('<leader>tk', '<cmd>Telescope keymaps<cr>', 'List all keymaps')
 nm('<leader>nn', '<cmd>Telescope notify<cr>', "Open Notifications")
 nm('<leader>tc', ':Telescope colorscheme<cr>', "Changes Colorscheme")
+nm('<leader>to', ":Trouble telescope<cr>", "Opens trouble telescope")
+nm("<leader>lt", ":TroubleToggle quickfix<cr>", "Toggles trouble" )
 
 
 -- Insert Mode bindings 
