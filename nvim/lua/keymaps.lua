@@ -12,8 +12,11 @@ nm('<leader>ll', ':Lazy<cr>', "Run lazy")
 nm('<C-n>', ':NvimTreeToggle<CR>', "Opens Neotree")
 nm('<leader>e', ':NvimTreeFocus <CR>', "Focus Nvimtree")
 -- nm('<leader>f', ':NvimTreeFocus<CR>', 'Focuses NvimTree')
+
+--Git keybinds
 nm('<leader>gg', '<cmd>LazyGit<cr>', "LazyGit")
-nm('<leader>e', ':Neotree<CR>', "Opens Neotree")
+nm('<leader>gp', ':Gitsigns preview_hunk<CR>', 'Preview Change Hunk')
+nm('<leader>gb', ':Gitsigns toggle_current_line_blame', 'Toggle current line blame for Git')
 
 -- Telescope mappings
 nm('<leader>tr', '<cmd>Telescope lsp_references<cr>', "LSP References in file")
