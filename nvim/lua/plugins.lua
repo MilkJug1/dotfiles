@@ -194,7 +194,11 @@ return {
 		'rcarriga/nvim-notify',
 		config = function()
 			require('notify').setup({
-				background_colour = "#161616"
+				background_colour = "#000000",
+				fps = 60,
+				stages = "fade",
+				timeout = 4000,
+				top_down = false
 			})
 		end
 	},
