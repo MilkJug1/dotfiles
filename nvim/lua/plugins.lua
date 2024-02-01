@@ -497,4 +497,10 @@ return {
 			require('neoscroll').setup {}
 		end
 	},
+
+	{
+		'segeljakt/vim-silicon'
+
+	},
+
 }
