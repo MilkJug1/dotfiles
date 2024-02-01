@@ -487,4 +487,8 @@ return {
 	-- 		require('arduino-nvim').setup()
 	-- 	end
 	-- }
+	{
+		"onsails/lspkind.nvim"
+	},
+
 }
