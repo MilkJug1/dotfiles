@@ -475,4 +475,16 @@ return {
 		end
 	},
 
+	{
+		'stevearc/vim-arduino',
+		lazy = false,
+		ft = "ino",
+	},
+
+	-- {
+	-- 	'glebzlat/Arduino.nvim',
+	-- 	config = function()
+	-- 		require('arduino-nvim').setup()
+	-- 	end
+	-- }
 }
