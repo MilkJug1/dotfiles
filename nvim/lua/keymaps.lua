@@ -94,3 +94,18 @@ im("<C-i>", ':IconPickerInsert emoji nerd_font alt_font symbols<cr>', "Inserts i
 nm('<leader>iy', ":IconPickerYank<cr>", "Pick Icon and Yank it to buffer")
 nm("<leader>in", ":IconPickerNormal<cr>", "Pick Icon and insert it into Buffer (Normal Mode)")
 
+
+-- Window Bidings 
+nm("<C-h>", "<C-w>h", "Moves left (buffer)")
+nm("<C-j>", "<C-w>j", "Moves up(buffer)")
+nm("<C-k>", "<C-w>k", "Moves down (buffer)")
+nm("<C-l>", "<C-w>l", "Moves right (buffer)")
+
+-- Window resizing
+nm('+', "<C-w>>", "Increases height of Window")
+nm('-', "<C-w><", "Increases height of Window")
+
+-- Buffer/Window Creation
+nm('<C-a>', "<C-w>v", "Splits window Vertically")
+
+
