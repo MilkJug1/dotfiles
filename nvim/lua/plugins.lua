@@ -523,4 +523,25 @@ return {
 			})
 		end
 	},
+		dependencies = {
+			"nvim-telescope/telescope.nvim"
+		},
+	},
+
+	{
+		'andweeb/presence.nvim',
+		config = function ()
+			require('presence').setup({
+				auto_update = true,
+				neovim_image_text = "Kill me",
+				main_image = "file",
+			})
+			
+		end
+	},
+
+	{
+		"tpope/vim-fugitive",
+	}
+
 }
