@@ -109,3 +109,5 @@ nm('-', "<C-w><", "Increases height of Window")
 nm('<C-a>', "<C-w>v", "Splits window Vertically")
 
 
+nm('<leader>l', ":Lazy<CR>", "Opens Lazy")
+nm('<leader>mo', ":Mason<CR>", "Opens Mason")
