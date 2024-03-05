@@ -16,4 +16,4 @@ require('keymaps')
 
 nm('<leader>dt', ':DapToggleBreakpoint<CR>', "Toggle Breakpoint (Debugging)")
 nm('<leader>dx', ':DapTerminate<CR>', "Terminate Debugging Session")
-nm('<leader>dn', 'DapStepOver<CR>', 'Step over in Debugging Session')
+nm('<leader>dn', ':DapStepOver<CR>', 'Step over in Debugging Session')

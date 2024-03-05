@@ -8,7 +8,6 @@ require "configs.telescope"
 require "configs.treesitter"
 require "configs.code-shot"
 require 'configs.which-key'
-require 'configs.rust-tools'
 require 'configs.dap_config'
 -- require 'configs.dashboard'
 -- require 'configs.bufferline'
@@ -19,3 +18,4 @@ r'configs.indent-blankline'
 r'configs.symbols-outline'
 r'configs.todo-comments'
 r'configs.alpha'
+r'configs.rustaceanvim'

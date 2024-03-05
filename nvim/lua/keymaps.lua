@@ -1,5 +1,7 @@
 require('globals')
 
+local bufnr = vim.api.nvim_get_current_buf()
+
 -- map.set('n', '<leader>f', ':Neotree<CR>')
 map('n', ';', ':')
 -- map('n', '<leader>:l', require("noice").cmd("lua"), {desc = "Opens command line with lua"})
@@ -14,7 +16,22 @@ nm('<leader>e', ':NvimTreeFocus <CR>', "Focus Nvimtree")
 -- nm('<leader>f', ':NvimTreeFocus<CR>', 'Focuses NvimTree')
 
 --Git keybinds
-nm('<leader>gg', '<cmd>LazyGit<cr>', "LazyGit")
+local Terminal = require('toggleterm.terminal').Terminal
+local lazygit  = Terminal:new({
+    cmd = "lazygit",
+    dir = "git_dir",
+    direction = "float",
+    float_opts = {
+        border = "double"
+    },
+    hidden = true
+})
+function _lazygit_toggle()
+    lazygit:toggle()
+end
+
+-- nm('<leader>gg', '<cmd>LazyGit<cr>', "LazyGit")
+nm('<leader>gg', _lazygit_toggle, "LazyGit Toggle Term")
 nm('<leader>gp', ':Gitsigns preview_hunk<CR>', 'Preview Change Hunk')
 nm('<leader>gb', ':Gitsigns toggle_current_line_blame', 'Toggle current line blame for Git')
 
@@ -27,10 +44,10 @@ nm('<leader>tk', '<cmd>Telescope keymaps<cr>', 'List all keymaps')
 nm('<leader>nn', '<cmd>Telescope notify<cr>', "Open Notifications")
 nm('<leader>tc', ':Telescope colorscheme<cr>', "Changes Colorscheme")
 nm('<leader>to', ":Trouble telescope<cr>", "Opens trouble telescope")
-nm("<leader>lt", ":TroubleToggle quickfix<cr>", "Toggles trouble" )
+nm("<leader>lt", ":TroubleToggle quickfix<cr>", "Toggles trouble")
 
 
--- Insert Mode bindings 
+-- Insert Mode bindings
 im('<C-h>', '<Left>')
 im('<C-j>', '<Down>')
 im('<C-k>', '<Up>')
@@ -49,17 +66,37 @@ map('n', 'gd', vim.lsp.buf.definition, { desc = "Goto definition" })
 nm('gI', vim.lsp.buf.implementation, "Goto Implementation")
 nm("<leader>D", vim.lsp.buf.type_definition, "Goto Type definition")
 nm("<leader>lr", vim.lsp.buf.rename, "LSP Rename")
+nm('<leader>lf', vim.lsp.buf.list_workspace_folders, "List workspaces folder")
+nm('<leader>la', vim.lsp.buf.add_workspace_folder, "Add a workspace folder")
 nm("<leader>ca", vim.lsp.buf.code_action, "LSP Code Action")
-nm("<C-k>", vim.lsp.buf.hover, "LSP Hover")
+nm("<C-v>", vim.lsp.buf.hover, "LSP Hover")
+nm("<leader>ws", vim.lsp.buf.workspace_symbol, "LSP workspace symbol")
 nm('<leader>ls', vim.lsp.buf.signature_help, "LSP Signature help")
 -- nm("K", vim.lsp.buf_request_sync)
 nm("K", vim.lsp.buf.hover)
-nm('<C-s>', require('cmp').mapping.open_docs, "LSP Open Docs")
+nm('<C-a>', require('cmp').mapping.open_docs, "LSP Open Docs")
 nm('<leader>fd', vim.diagnostic.open_float, "Floating diagnostic")
 -- Symbols outline
 nm('<leader>so', ':SymbolsOutline<cr>', "Opens Symbols Outline UI")
 nm('gP', require('goto-preview').goto_preview_definition, 'Preview Defintion')
+-- map('n', '<leader>a', vim.cmd.RustLsp('code_action') {silent = true, buffer = bufnr, desc = "Rust code action"})
 
+-- Nvim Specific keybinds
+local function my_on_attach(bufnr)
+    local ntree = require('nvim-tree.api')
+
+    local function opts(desc)
+        return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+    end
+
+    ntree.config.mappings.default_on_attach(bufnr)
+
+    map('n', 't', ntree.tree.change_root_to_node, { buffer = bufnr, noremap = true, silent = true, nowait = true })
+end
+
+require('nvim-tree').setup {
+    on_attach = my_on_attach,
+}
 
 -- Buffer keymaps
 nm('[b', ':BufferLineCyclePrev<cr>', 'Go to previously opened buffer')
@@ -70,20 +107,21 @@ nm('<leader>bc', ':nohlsearch<cr>', 'Clear Search Register')
 nm("<Esc>", ":noh <CR>", "Clear Highlights");
 -- TODO Multiwindow keymaps
 
--- Terminal Bindings 
-nm('<leader>tf', ':ToggleTerm<cr>', 'Toggle Term(Floating)')
+-- Terminal Bindings
+nm('<leader>tn', ':ToggleTerm<cr>', 'Toggle Term')
+nm('<leader>tf', ":lua require('FTerm').toggle()<cr>", "Toggle Term(Floating)")
 nm('<leader>tg', ':ToggleTermToggleAll<cr>', "Toggle Term/Bring Back Previous Session")
 tm('<Esc>', '<C-\\><C-N>')
 
 
--- Markdown bindings 
+-- Markdown bindings
 nm('<leader>ms', ':MarkdownPreview<CR>', "MarkdownPreview")
 nm('<leader>md', ':MarkdownPreviewStop<cr>', "Stop Markdown Preview")
 nm("<leader>mt", ":MarkdownPreviewToggle<cr>", 'Toggles MarkdownPreview')
 nm("<leader>mk", ":MarkdownPreview solarized-dark<cr>", "MarkdownPreview with solarized Dark theme")
 
 
--- TODO-Comments Bindings 
+-- TODO-Comments Bindings
 nm("<leader>tn", require('todo-comments').jump_next, "Jumps to the next Todo comment")
 nm("<leader>tb", require('todo-comments').jump_prev, "Jumps to the previous comment")
 nm('<leader>tt', ":TodoTelescope<cr>", "Opens Telescope for all TODOS")
@@ -94,7 +132,7 @@ nm('<leader>iy', ":IconPickerYank<cr>", "Pick Icon and Yank it to buffer")
 nm("<leader>in", ":IconPickerNormal<cr>", "Pick Icon and insert it into Buffer (Normal Mode)")
 
 
--- Window Bidings 
+-- Window Bindings
 nm("<C-h>", "<C-w>h", "Moves left (buffer)")
 nm("<C-j>", "<C-w>j", "Moves up(buffer)")
 nm("<C-k>", "<C-w>k", "Moves down (buffer)")
@@ -105,7 +143,7 @@ nm('+', "<C-w>>", "Increases height of Window")
 nm('-', "<C-w><", "Increases height of Window")
 
 -- Buffer/Window Creation
-nm('<C-a>', "<C-w>v", "Splits window Vertically")
+nm('<C-v>', "<C-w>v", "Splits window Vertically")
 
 
 nm('<leader>l', ":Lazy<CR>", "Opens Lazy")

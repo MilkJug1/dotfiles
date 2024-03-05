@@ -9,7 +9,29 @@ o.clipboard = 'unnamedplus'
 
 o.number = true
 o.relativenumber = true
+opt.rnu = true
 
+opt.tabstop = 2
+opt.softtabstop = 2
+opt.expandtab = true
+
+opt.smartindent = true
+opt.shiftwidth = 2
+
+opt.breakindent = true
+
+opt.ignorecase = true
+opt.smartcase = true 
+
+opt.completeopt = {"menuone", "noselect"}
+
+opt.undofile = true
+
+-- Always keep 8 lines above/below cursor unless at start/end of file
+vim.opt.scrolloff = 8
+
+-- Place a column line
+vim.opt.colorcolumn = "80"
 o.signcolumn = 'yes'
 
 o.tabstop = 4

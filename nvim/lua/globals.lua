@@ -2,8 +2,8 @@
 map = vim.keymap.set
 
 -- Normal mode keymap setter
-function nm(key, command, desc)
-	map('n', key, command, { desc = desc })
+function nm(key, command, desc, opts)
+	map('n', key, command, { desc = desc, opts = opts })
 end
 
 -- Insert/Input mode

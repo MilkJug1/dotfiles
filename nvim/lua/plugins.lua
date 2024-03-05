@@ -53,6 +53,8 @@ return {
 		'L3MON4D3/LuaSnip',
 		'hrsh7th/cmp-nvim-lsp',
 		'rafamadriz/friendly-snippets',
+		"windwp/nvim-ts-autotag",
+		"windwp/nvim-autopairs",
 
 	},
 
@@ -144,7 +146,7 @@ return {
 			"nvim-tree/nvim-web-devicons",
 		},
 		config = function()
-			require("nvim-tree").setup {}
+			require("nvim-tree").setup { view = { side = 'right' } }
 		end,
 		cmd = { "NvimTreeToggle", "NvimTreeFocus" },
 	},
@@ -154,9 +156,6 @@ return {
 		dependencies = {
 			'niuiic/core.nvim',
 		},
-	},
-	{
-		'simrat39/rust-tools.nvim',
 	},
 
 	'mfussenegger/nvim-dap',
@@ -335,21 +334,21 @@ return {
 		cmd = "Glow"
 	},
 
-	{
-		-- Lazy.nvim
-		"TobinPalmer/Tip.nvim",
-		event = "VimEnter",
-		init = function()
-			-- Default config
-			--- @type Tip.config
-			require("tip").setup({
-				title = "Tip!",
-				url = "https://vtip.43z.one",
-			})
-		end,
-
-	},
-
+	-- {
+	-- 	-- Lazy.nvim
+	-- 	"TobinPalmer/Tip.nvim",
+	-- 	event = "VimEnter",
+	-- 	init = function()
+	-- 		-- Default config
+	-- 		--- @type Tip.config
+	-- 		require("tip").setup({
+	-- 			title = "Tip!",
+	-- 			url = "https://vtip.43z.one",
+	-- 		})
+	-- 	end,
+	--
+	-- },
+	--
 	{
 		'rafamadriz/neon'
 	},
@@ -430,6 +429,26 @@ return {
 		config = function()
 			require('catppuccin').setup({
 				-- transparent_background = true,
+				integrations = {
+					cmp = true,
+					gitsigns = true,
+					harpoon = true,
+					illuminate = true,
+					indent_blankline = {
+						enabled = false,
+						scope_color = "sapphire",
+						colored_indent_levels = false,
+					},
+					mason = true,
+					native_lsp = { enabled = true },
+					notify = true,
+					nvimtree = true,
+					neotree = true,
+					symbols_outline = true,
+					telescope = true,
+					treesitter = true,
+					treesitter_context = true,
+				},
 			})
 		end
 	},
@@ -478,7 +497,7 @@ return {
 	{
 		'stevearc/vim-arduino',
 		lazy = false,
-		ft = "ino",
+		ft = "arduino",
 	},
 
 	-- {
@@ -534,18 +553,66 @@ return {
 
 	{
 		'andweeb/presence.nvim',
-		config = function ()
+		config = function()
 			require('presence').setup({
 				auto_update = true,
 				neovim_image_text = "Kill me",
 				main_image = "file",
 			})
-			
 		end
 	},
 
 	{
 		"tpope/vim-fugitive",
-	}
+	},
+
+	{
+		'mrcjkb/rustaceanvim',
+		version = '^4',
+		-- ft = {'rust' }
+	},
+
+	'preservim/vim-pencil',
+
+	{
+		"folke/zen-mode.nvim",
+		opts = {
+			-- your configuration comes here
+			-- or leave it empty to use the default settings
+			-- refer to the configuration section below
+		},
+	},
+
+	{
+		"folke/twilight.nvim",
+		opts = {
+			-- your configuration comes here
+			-- or leave it empty to use the default settings
+			-- refer to the configuration section below
+		}
+	},
+
+	{
+		"j-hui/fidget.nvim",
+		opts = {
+			-- options
+		},
+	},
+
+	{
+		"numToStr/FTerm.nvim",
+
+	},
+
+	{
+		"gelguy/wilder.nvim",
+	},
+
+	{
+		"echasnovski/mini.cursorword",
+		version = "*",
+		lazy = true,
+		-- 	event = "CursorMoved",
+	},
 
 }

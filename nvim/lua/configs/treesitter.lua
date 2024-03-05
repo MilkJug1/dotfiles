@@ -1,5 +1,5 @@
 require("nvim-treesitter.configs").setup {
-	ensure_installed = { 'vim', 'vimdoc', 'lua', 'cpp', 'c', 'python', 'rust' },
+	ensure_installed = { 'vim', 'vimdoc', 'lua', 'cpp', 'c', 'python', 'rust', 'markdown', 'hypr', 'hyprlang' },
 	auto_install = true,
 
 	highlight = { enable = true },
