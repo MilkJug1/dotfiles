@@ -21,9 +21,9 @@ opt.shiftwidth = 2
 opt.breakindent = true
 
 opt.ignorecase = true
-opt.smartcase = true 
+opt.smartcase = true
 
-opt.completeopt = {"menuone", "noselect"}
+opt.completeopt = { "menuone", "noselect" }
 
 opt.undofile = true
 
@@ -31,7 +31,7 @@ opt.undofile = true
 vim.opt.scrolloff = 8
 
 -- Place a column line
-vim.opt.colorcolumn = "80"
+vim.opt.colorcolumn = "100"
 o.signcolumn = 'yes'
 
 o.tabstop = 4
@@ -48,12 +48,18 @@ opt.autoread = true
 opt.autowrite = true
 opt.showcmd = true
 
+vim.diagnostic.config({virtual_text= false})
+
 
 --vim.cmd("colorscheme duskfox")
 
 --vim.cmd.colorscheme("duskfox")
 
 if vim.g.neovide then
-	-- vim.g.neovide_transparency = 0.9
-	vim.o.guifont = "JetBrainsMono Nerd Font"
+    -- vim.g.neovide_transparency = 0.9
+    vim.o.guifont = "JetBrainsMono Nerd Font"
 end
+
+vim.filetype.add({
+    pattern = { [".*/hyprland%.conf"] = "hyprlang" },
+})

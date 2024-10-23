@@ -15,7 +15,6 @@ r('configs.bufferline')
 r 'configs.noice'
 r'configs.autopairs'
 r'configs.indent-blankline'
-r'configs.symbols-outline'
 r'configs.todo-comments'
-r'configs.alpha'
 r'configs.rustaceanvim'
+r'configs.oil'

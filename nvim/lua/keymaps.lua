@@ -11,9 +11,11 @@ nm('<leader>r', ':Telescope file_browser<cr>', "Telescope File browser")
 -- nm('<leader>ps', require('code-shot').shot(), "Takes a screenshot of whole file")
 map({ 'n', 'v' }, '<leader>ps', require('code-shot').shot)
 nm('<leader>ll', ':Lazy<cr>', "Run lazy")
-nm('<C-n>', ':NvimTreeToggle<CR>', "Opens Neotree")
-nm('<leader>e', ':NvimTreeFocus <CR>', "Focus Nvimtree")
+-- nm('<C-n>', ':NvimTreeToggle<CR>', "Opens Neotree")
+-- nm('<leader>e', ':NvimTreeFocus <CR>', "Focus Nvimtree")
 -- nm('<leader>f', ':NvimTreeFocus<CR>', 'Focuses NvimTree')
+
+nm('<leader>n', ':lua require("oil").toggle_float()<CR>', 'Opens Oil')
 
 --Git keybinds
 local Terminal = require('toggleterm.terminal').Terminal

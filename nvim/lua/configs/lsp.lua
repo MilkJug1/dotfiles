@@ -1,13 +1,13 @@
 local on_attach = function(_, bufnr)
-	local bufmap = function(keys, func)
-		vim.keymap.set('n', keys, func, { buffer = bufnr })
-	end
-	--
-	-- bufmap('K', vim.lsp.buf.hover)
+    local bufmap = function(keys, func)
+        vim.keymap.set('n', keys, func, { buffer = bufnr })
+    end
+    --
+    -- bufmap('K', vim.lsp.buf.hover)
 
-	vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
-		vim.lsp.buf.format()
-	end, {})
+    vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
+        vim.lsp.buf.format()
+    end, {})
 end
 
 
@@ -38,45 +38,45 @@ capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
 require('mason').setup()
 require('mason-lspconfig').setup_handlers({
-	function(server_name)
-		require('lspconfig')[server_name].setup {
-			on_attach = on_attach,
-			capabilities = capabilities
-		}
-	end,
+    function(server_name)
+        require('lspconfig')[server_name].setup {
+            on_attach = on_attach,
+            capabilities = capabilities
+        }
+    end,
 
-	["lua_ls"] = function()
-		require('neodev').setup()
-		require('lspconfig').lua_ls.setup {
-			on_attach = on_attach,
-			capabilities = capabilities,
-			settings = {
-				Lua = {
-					workspace = { checkThirdParty = false },
-					telemetry = { enable = false },
-				},
-			}
-		}
-	end,
+    ["lua_ls"] = function()
+        require('neodev').setup()
+        require('lspconfig').lua_ls.setup {
+            on_attach = on_attach,
+            capabilities = capabilities,
+            settings = {
+                Lua = {
+                    workspace = { checkThirdParty = false },
+                    telemetry = { enable = false },
+                },
+            }
+        }
+    end,
 
-	["clangd"] = function()
-		require('lspconfig').clangd.setup {
-			on_attach = on_attach,
-			capabilities = capabilities,
-			cmd = {
-				'clangd',
-				'--offset-encoding=utf-16',
-			},
-		}
-	end,
+    ["clangd"] = function()
+        require('lspconfig').clangd.setup {
+            on_attach = on_attach,
+            capabilities = capabilities,
+            cmd = {
+                'clangd',
+                '--offset-encoding=utf-16',
+            },
+        }
+    end,
 
-	["arduino-language-server"] = function()
-		require('lspconfig').arduino_language_server.setup {
-			on_attach = on_attach,
-			capabilities = capabilities,
-			cmd = {
-				'arduino-language-server'
-			}
-		}
-	end
+    -- ["arduino-language-server"] = function()
+    -- 	require('lspconfig').arduino_language_server.setup {
+    -- 		on_attach = on_attach,
+    -- 		capabilities = capabilities,
+    -- 		cmd = {
+    -- 			'arduino-language-server'
+    -- 		}
+    -- 	}
+    -- end
 })
