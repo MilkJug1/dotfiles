@@ -46,6 +46,7 @@ return {
 
     {
         "hrsh7th/nvim-cmp",
+        -- "Saghen/blink.cmp",
         "hrsh7th/cmp-nvim-lua",
         "hrsh7th/cmp-buffer",
         "hrsh7th/cmp-path",
@@ -704,3 +705,4 @@ return {
     },
 
 }
+
