@@ -70,6 +70,10 @@ require('mason-lspconfig').setup_handlers({
         }
     end,
 
+    ["rust_analyzer"] = function() end,
+
+    
+
     -- ["arduino-language-server"] = function()
     -- 	require('lspconfig').arduino_language_server.setup {
     -- 		on_attach = on_attach,
