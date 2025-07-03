@@ -1,3 +1,2 @@
--- local alpha = require('alpha')
 --
 -- alpha.setup()
