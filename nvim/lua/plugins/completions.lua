@@ -1,10 +1,5 @@
 return {
     {
-        "hrsh7th/cmp-nvim-lsp"
-    },
-
-
-    {
         "numToStr/Comment.nvim",
         config = function()
             require("Comment").setup()
@@ -14,9 +9,15 @@ return {
     {
         "gelguy/wilder.nvim",
     },
-
+    --NOTE: nvim-cmp is going to get replaced with blink.cmp, so this would be redundant
     {
         "hrsh7th/nvim-cmp",
+        dependencies = {
+            "hrsh7th/cmp-buffer",
+            "hrsh7th/cmp-path",
+        },
+
+            enabled = false,
         config = function()
             -- Set up nvim-cmp.
             local cmp = require 'cmp'
@@ -71,6 +72,8 @@ return {
                 sources = cmp.config.sources({
                     { name = 'nvim_lsp' },
                     { name = 'luasnip' }, -- For luasnip users.
+                    { name = 'buffer' },
+                    { name = 'path' },
                 }, {
                     { name = 'buffer' },
                 })
@@ -79,16 +82,16 @@ return {
 
     },
 
-    {
-        "L3MON4D3/LuaSnip",
-        dependencies = {
-            "rafamadriz/friendly-snippets",
-            "saadparwaiz1/cmp_luasnip",
-        },
-        -- follow latest release.
-        version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
-
-    },
+    -- {
+    --     "L3MON4D3/LuaSnip",
+    --     dependencies = {
+    --         "rafamadriz/friendly-snippets",
+    --         "saadparwaiz1/cmp_luasnip",
+    --     },
+    --     -- follow latest release.
+    --     version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+    --
+    -- },
 
     {
         'mrcjkb/rustaceanvim',
