@@ -48,7 +48,7 @@ opt.autoread = true
 opt.autowrite = true
 opt.showcmd = true
 
--- vim.diagnostic.config({virtual_text= false})
+vim.diagnostic.config({virtual_text= true})
 
 
 --vim.cmd("colorscheme duskfox")
