@@ -1,19 +1,11 @@
 -- For plugins that don't fit with LSP stuff, but change or improve the way I write text or code on Neovim.
 --
 --
-
-
 return {
 
     {
         "folke/todo-comments.nvim",
         dependencies = { "nvim-lua/plenary.nvim" },
-    },
-
-    {
-        'akinsho/toggleterm.nvim',
-        config = true,
-        version = '*',
     },
 
     {
@@ -96,20 +88,13 @@ return {
         end
     },
 
-    {
-        'lewis6991/gitsigns.nvim',
-        config = function()
-            require('gitsigns').setup()
-        end
-    },
-
-    {
-        'kdheepak/lazygit.nvim',
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-        },
-    },
-
+    -- {
+    --     'lewis6991/gitsigns.nvim',
+    --     config = function()
+    --         require('gitsigns').setup()
+    --     end
+    -- },
+    --
     {
         "j-hui/fidget.nvim",
         opts = {
