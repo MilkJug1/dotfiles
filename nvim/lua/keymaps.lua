@@ -7,46 +7,29 @@ map('n', ';', ':')
 -- map('n', '<leader>:l', require("noice").cmd("lua"), {desc = "Opens command line with lua"})
 -- File browser with Telescope file browser extension /
 
-nm('<leader>r', ':Telescope file_browser<cr>', "Telescope File browser")
+-- nm('<leader>r', ':Telescope file_browser<cr>', "Telescope File browser")
 -- nm('<leader>ps', require('code-shot').shot(), "Takes a screenshot of whole file")
 -- map({ 'n', 'v' }, '<leader>ps', require('code-shot').shot)
-nm('<leader>ll', ':Lazy<cr>', "Run lazy")
 -- nm('<C-n>', ':NvimTreeToggle<CR>', "Opens Neotree")
 -- nm('<leader>e', ':NvimTreeFocus <CR>', "Focus Nvimtree")
 -- nm('<leader>f', ':NvimTreeFocus<CR>', 'Focuses NvimTree')
 
-nm('<leader>n', ':lua require("oil").toggle_float()<CR>', 'Opens Oil')
+nm('<leader>s', ':lua require("oil").toggle_float()<CR>', 'Opens Oil')
 
 --Git keybinds
-local Terminal = require('toggleterm.terminal').Terminal
-local lazygit  = Terminal:new({
-    cmd = "lazygit",
-    dir = "git_dir",
-    direction = "float",
-    float_opts = {
-        border = "double"
-    },
-    hidden = true
-})
-function _lazygit_toggle()
-    lazygit:toggle()
-end
 
 -- nm('<leader>gg', '<cmd>LazyGit<cr>', "LazyGit")
-nm('<leader>gg', _lazygit_toggle, "LazyGit Toggle Term")
+
 nm('<leader>gp', ':Gitsigns preview_hunk<CR>', 'Preview Change Hunk')
 nm('<leader>gb', ':Gitsigns toggle_current_line_blame', 'Toggle current line blame for Git')
 
+-- TODO: Add Snacks.nvim mappings to here, can replace telescope and a lot of other things.
 -- Telescope mappings
-nm('<leader>tr', '<cmd>Telescope lsp_references<cr>', "LSP References in file")
+
+--NOTE Lots of these keybindings will be refactored and put into the 'plugins/snacks.lua' file
+nm('<leader>tl', '<cmd>Telescope lsp_references<cr>', "LSP References in file")
 nm('<leader>td', '<cmd>Telescope lsp_document_symbols<cr>', 'LSP Document Symbols')
 nm('<leader>tw', '<cmd>Telescope lsp_dynamic_workspace_symbols<cr>', "LSP Dynamic Workspace Symbols")
-nm('<leader>tr', '<cmd>Telescope find_files<cr>', "Find files with Telescope")
-nm('<leader>tk', '<cmd>Telescope keymaps<cr>', 'List all keymaps')
-nm('<leader>nn', '<cmd>Telescope notify<cr>', "Open Notifications")
-nm('<leader>tc', ':Telescope colorscheme<cr>', "Changes Colorscheme")
-nm('<leader>to', ":Trouble telescope<cr>", "Opens trouble telescope")
-nm("<leader>lt", ":TroubleToggle quickfix<cr>", "Toggles trouble")
 
 
 -- Insert Mode bindings
@@ -64,18 +47,18 @@ im('<C-l>', '<Right>')
 -- bufmap('<leader>D', vim.lsp.buf.type_definition) vim.lsp.b
 --
 nm('<leader>fm', '<cmd>lua vim.lsp.buf.format{async=true}<cr>', "Format File with LSP")
-map('n', 'gd', vim.lsp.buf.definition, { desc = "Goto definition" })
-nm('gI', vim.lsp.buf.implementation, "Goto Implementation")
-nm("<leader>D", vim.lsp.buf.type_definition, "Goto Type definition")
+-- map('n', 'gd', vim.lsp.buf.definition, { desc = "Goto definition" })
+-- nm('gI', vim.lsp.buf.implementation, "Goto Implementation")
+-- nm("<leader>D", vim.lsp.buf.type_definition, "Goto Type definition")
 nm("<leader>lr", vim.lsp.buf.rename, "LSP Rename")
 nm('<leader>lf', vim.lsp.buf.list_workspace_folders, "List workspaces folder")
 nm('<leader>la', vim.lsp.buf.add_workspace_folder, "Add a workspace folder")
 nm("<leader>ca", vim.lsp.buf.code_action, "LSP Code Action")
-nm("<C-v>", vim.lsp.buf.hover, "LSP Hover")
 nm("<leader>ws", vim.lsp.buf.workspace_symbol, "LSP workspace symbol")
 nm('<leader>ls', vim.lsp.buf.signature_help, "LSP Signature help")
 -- nm("K", vim.lsp.buf_request_sync)
 nm("K", vim.lsp.buf.hover)
+-- nm("", vim.lsp.buf.hover, "LSP Hover")
 -- nm('<C-a>', require('cmp').mapping.open_docs, "LSP Open Docs")
 nm('<leader>fd', vim.diagnostic.open_float, "Floating diagnostic")
 -- Symbols outline
@@ -104,11 +87,11 @@ nm(']b', ':BufferLineCycleNext<cr>', 'Go to the next opened buffer')
 nm('<leader>bc', ':nohlsearch<cr>', 'Clear Search Register')
 nm("<Esc>", ":noh <CR>", "Clear Highlights");
 -- TODO Multiwindow keymaps
+--
+nm("<leader>vs", "<cmd>vsplit<cr>", "Verticle Split")
 
 -- Terminal Bindings
-nm('<leader>tn', ':ToggleTerm<cr>', 'Toggle Term')
-nm('<leader>tf', ":lua require('FTerm').toggle()<cr>", "Toggle Term(Floating)")
-nm('<leader>tg', ':ToggleTermToggleAll<cr>', "Toggle Term/Bring Back Previous Session")
+-- nm('<leader>tf', ":lua require('FTerm').toggle()<cr>", "Toggle Term(Floating)")
 tm('<Esc>', '<C-\\><C-N>')
 
 
@@ -121,7 +104,7 @@ nm("<leader>mk", ":MarkdownPreview solarized-dark<cr>", "MarkdownPreview with so
 
 -- TODO-Comments Bindings
 nm("<leader>tn", require('todo-comments').jump_next, "Jumps to the next Todo comment")
-nm("<leader>tb", require('todo-comments').jump_prev, "Jumps to the previous comment")
+nm("<leader>tp", require('todo-comments').jump_prev, "Jumps to the previous comment")
 nm('<leader>tt', ":TodoTelescope<cr>", "Opens Telescope for all TODOS")
 --
 -- Icon Picker
@@ -144,7 +127,6 @@ nm('-', "<C-w><", "Increases height of Window")
 nm('<C-v>', "<C-w>v", "Splits window Vertically")
 
 
-nm('<leader>l', ":Lazy<CR>", "Opens Lazy")
 nm('<leader>mo', ":Mason<CR>", "Opens Mason")
 
 vim.keymap.set({ "n", "i" }, "<M-l>", function()
