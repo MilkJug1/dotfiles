@@ -172,7 +172,63 @@ return {
         "bullets-vim/bullets.vim"
     },
 
+    {
+        "smoka7/hop.nvim",
+        version = "*",
+        opts = {
+            keys = 'etovxqpdygfblzhckisuran'
+        }
+    },
 
+    {
+        "ThePrimeagen/harpoon",
+        branch = "harpoon2",
+        dependencies = { "nvim-lua/plenary.nvim" },
+        config = function()
+            local harpoon = require('harpoon')
 
+            harpoon:setup {
+                settings = {
+                    save_on_toggle = true,
+                },
+            }
+            --NOTE: Make more sensible bindings?
+            -- Done as a way to create a better way to handle buffers
 
+            -- vim.keymap.set("n", "<leader>p", function() harpoon:list():add() end)
+            vim.keymap.set("n", "ta", function() harpoon:list():add() end)
+            vim.keymap.set("n", "to", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
+
+            vim.keymap.set("n", "t1", function() harpoon:list():select(1) end, { desc = "Jump to Harpoon Selection 1"})
+            vim.keymap.set("n", "t2", function() harpoon:list():select(2) end)
+            vim.keymap.set("n", "t3", function() harpoon:list():select(3) end)
+            vim.keymap.set("n", "t4", function() harpoon:list():select(4) end)
+
+            -- Toggle previous & next buffers stored within Harpoon list
+            vim.keymap.set("n", "tn", function() harpoon:list():prev() end)
+            vim.keymap.set("n", "tp", function() harpoon:list():next() end)
+
+            -- basic telescope configuration
+            local conf = require("telescope.config").values
+            local function toggle_telescope(harpoon_files)
+                local file_paths = {}
+                for _, item in ipairs(harpoon_files.items) do
+                    table.insert(file_paths, item.value)
+                end
+
+                require("telescope.pickers").new({}, {
+                    prompt_title = "Harpoon",
+                    finder = require("telescope.finders").new_table({
+                        results = file_paths,
+                    }),
+                    previewer = conf.file_previewer({}),
+                    sorter = conf.generic_sorter({}),
+                }):find()
+            end
+
+            vim.keymap.set("n", "<leader>th", function() toggle_telescope(harpoon:list()) end,
+                { desc = "Open harpoon window" })
+        end
+
+    },
 }
