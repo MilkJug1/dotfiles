@@ -1,14 +1,20 @@
 # dotfiles  
-Just a place to host my
+Just a place to host my dotfiles. This is for my system and other similar systems that I will have, so I cannot guarantee that it will work on other people's systems.
 
-# Installation
+This will be split into  2 sections, one for Hyprland and the other for Neovim.
+
+# Hyprland
+
+One thing to note, I have and use a NVIDIA card. This could affect the overrall relibility of this config because I've had to configure it to work with NVIDIA Cards. I have tried to abstract NVIDIA specific things into its own file, but I don't know if I fully abstracted it.
+
+## Installation
+
 > [!NOTE]
 > There will be a script to make this easier soon, will install everything you need to use this
 > from deps to the compositor and more.
 > That will be coming soon.
 
-
-## Dependencies
+### Dependencies for Hyprland/Wayland
 The full list of dependencies will be discovered later, I know that bascially most of what made up [SolDoesTech/HyperV2's](https://github.com/SolDoesTech/HyprV2) dependencies, are very similar to here. Obviously, you will need
 
 - Hyprland
@@ -65,6 +71,19 @@ For anyone with a Multi-monitor setup, change the lines inside of the `hypr/conf
 
 ![](pictures/desktop-withnvim.png)
 
+# Neovim 
+
+I technically have 2 seperate neovim configs, I used to use LazyVim a while ago and had my own configuration for it, however I have since switched from LazyVim to my own config. I have tried to make the my own config of neovim a little more expandable and configurable than it once was. 
+
+One thing that I use a lot of the time is also Neovide, so my configuration does have some settings that are more specific towards Neovide. 
+
+I have based my config off of a lot of people from the NeoVim community and many videos to assist setting up Neovim, I have combined most of the need to know information regarding Neovim inside of its own [README](/nvim/README.md), click [here](/nvim/README.md) or before to be linked to it.
+
+![](./pictures/NeoVim.png)
+
+![](./pictures/NeovimCpp.png)
+
+![](./pictures/NeovimRust.png)
 
 # Inspiration
 I was inspired by tons of different configs, I don't remember all but I will try to list as many as I can here that I remember taking from and modifying.
