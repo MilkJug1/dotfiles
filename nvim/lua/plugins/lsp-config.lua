@@ -33,20 +33,15 @@ return {
         end
     },
 
-
-    {
-        'windwp/nvim-autopairs',
-        event = 'InsertEnter',
-    },
-
     {
         "onsails/lspkind.nvim"
     },
+
     {
         "williamboman/mason-lspconfig.nvim",
         config = function()
             require("mason-lspconfig").setup({
-                ensure_installed = { "lua_ls", "clangd", "zls", "clang-format" }
+                ensure_installed = { "lua_ls", "clangd", "zls", "cmake", "marksman", "basedpyright"}
             })
         end
     },
