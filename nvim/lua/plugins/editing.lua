@@ -46,18 +46,18 @@ return {
         end,
     },
 
-    {
-        'rcarriga/nvim-notify',
-        config = function()
-            require('notify').setup({
-                background_colour = "#000000",
-                fps = 60,
-                stages = "fade",
-                timeout = 4000,
-                top_down = false
-            })
-        end
-    },
+    -- {
+    --     'rcarriga/nvim-notify',
+    --     config = function()
+    --         require('notify').setup({
+    --             background_colour = "#000000",
+    --             fps = 60,
+    --             stages = "fade",
+    --             timeout = 4000,
+    --             top_down = false
+    --         })
+    --     end
+    -- },
 
     {
         'folke/noice.nvim',
