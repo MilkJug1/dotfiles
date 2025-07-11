@@ -7,9 +7,9 @@ return {
     {
         'tiagovla/tokyodark.nvim',
         config = function()
-            require('tokyodark').setup({
-                transparent_background = true,
-            })
+            -- require('tokyodark').setup({
+            --     transparent_background = true,
+            -- })
         end
 
     },
