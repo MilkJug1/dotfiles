@@ -1,5 +1,5 @@
 require('globals') -- Require the globals file
-local on_attach = require('lspconfig').on_attach
+-- local on_attach = require('lspconfig').on_attach
 
 --TODO: Integrate rustacenvim support for blink.cmp and fix warning from lspconfig on_attach
 --
