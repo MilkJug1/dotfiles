@@ -130,17 +130,17 @@ return {
         'hedyhli/outline.nvim'
     },
 
-    {
-        'echasnovski/mini.surround',
-        version = false,
-        config = function()
-            require('mini.surround').setup();
-        end
-    },
-
-    {
-        'echasnovski/mini.ai',
-    },
+    -- {
+    --     'echasnovski/mini.surround',
+    --     version = false,
+    --     config = function()
+    --         require('mini.surround').setup();
+    --     end
+    -- },
+    --
+    -- {
+    --     'echasnovski/mini.ai',
+    -- },
 
     {
         "folke/flash.nvim",
