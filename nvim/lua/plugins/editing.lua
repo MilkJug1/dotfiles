@@ -231,4 +231,12 @@ return {
         end
 
     },
+
+    {
+        "mbbill/undotree"
+    },
+
+    {
+        "jbyuki/venn.nvim",
+    },
 }
