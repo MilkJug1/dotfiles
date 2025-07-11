@@ -80,8 +80,6 @@ end
 
 
 -- Buffer keymaps
-nm('[b', ':BufferLineCyclePrev<cr>', 'Go to previously opened buffer')
-nm(']b', ':BufferLineCycleNext<cr>', 'Go to the next opened buffer')
 
 -- Clear search
 nm('<leader>bc', ':nohlsearch<cr>', 'Clear Search Register')
