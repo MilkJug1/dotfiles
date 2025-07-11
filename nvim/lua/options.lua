@@ -55,9 +55,11 @@ vim.diagnostic.config({virtual_text= true})
 
 --vim.cmd.colorscheme("duskfox")
 
+vim.o.guifont = "JetBrainsMono Nerd Font:h12"
+
 if vim.g.neovide then
     -- vim.g.neovide_transparency = 0.9
-    vim.o.guifont = "JetBrainsMono Nerd Font"
+    vim.o.guifont = "JetBrainsMono Nerd Font:h13"
 end
 
 vim.filetype.add({
