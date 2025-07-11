@@ -22,8 +22,8 @@
 
 
 ### Editor Stuff TODO
-- [ ] Implement Which-key support, and move all plugin bindings to it 
-- [ ] Blink.cmp? Start configuring that to Nvim
+~- [ ] Implement Which-key support, and move all plugin bindings to it~
+- [ ] Blink.cmp? Start configuring that to Nvim (Kinda done so far)
 - [ ] Test if Languages work
     - [ ] make sure every language you want to use is installed by default
     - [ ] Markdown support and Typst
