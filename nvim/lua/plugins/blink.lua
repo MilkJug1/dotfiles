@@ -6,10 +6,10 @@ return {
         dependencies = { "L3MON4D3/LuaSnip", version = "v2.*"},
         version = "1.*",
         opts = {
-            highlight = {
-
-                use_nvim_cmp_as_default = true,
-            },
+            -- highlight = {
+            --
+            --     use_nvim_cmp_as_default = true,
+            -- },
 
             keymap={
                 preset = 'default',
