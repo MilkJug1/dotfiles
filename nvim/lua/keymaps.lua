@@ -23,8 +23,14 @@ nm('<leader>s', ':lua require("oil").toggle_float()<CR>', 'Opens Oil')
 nm('<leader>gp', ':Gitsigns preview_hunk<CR>', 'Preview Change Hunk')
 nm('<leader>gb', ':Gitsigns toggle_current_line_blame', 'Toggle current line blame for Git')
 
+
 -- TODO: Add Snacks.nvim mappings to here, can replace telescope and a lot of other things.
 -- Telescope mappings
+
+nm("tj", ":bprevious<cr>", "Previous Buffer")
+nm("tk", ":bnext<cr>", "Next Buffer")
+nm("td", ":bdelete<cr>", "Deletes/Closes Buffer")
+
 
 --NOTE Lots of these keybindings will be refactored and put into the 'plugins/snacks.lua' file
 nm('<leader>tl', '<cmd>Telescope lsp_references<cr>', "LSP References in file")
@@ -37,6 +43,9 @@ im('<C-h>', '<Left>')
 im('<C-j>', '<Down>')
 im('<C-k>', '<Up>')
 im('<C-l>', '<Right>')
+
+-- Undo Tree 
+nm("<leader>ut", ":UndotreeToggle<cr>", "Toggles UndoTree")
 
 -- LSP  Bindings
 -- bufmap('<leader>r', vim.lsp.buf.rename)
@@ -79,7 +88,6 @@ local function my_on_attach(bufnr)
 end
 
 
--- Buffer keymaps
 
 -- Clear search
 nm('<leader>bc', ':nohlsearch<cr>', 'Clear Search Register')
@@ -109,6 +117,8 @@ nm('<leader>tt', ":TodoTelescope<cr>", "Opens Telescope for all TODOS")
 -- im("<C-i>", ':IconPickerInsert emoji nerd_font alt_font symbols<cr>', "Inserts icon while in Insert Mode")
 -- nm('<leader>iy', ":IconPickerYank<cr>", "Pick Icon and Yank it to buffer")
 -- nm("<leader>in", ":IconPickerNormal<cr>", "Pick Icon and insert it into Buffer (Normal Mode)")
+
+nm("<leader>a", ":lua MiniFiles.open()<cr>", "Mini File explorer" )
 
 
 -- Window Bindings
