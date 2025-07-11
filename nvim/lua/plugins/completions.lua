@@ -17,7 +17,7 @@ return {
             "hrsh7th/cmp-path",
         },
 
-            enabled = false,
+        enabled = false,
         config = function()
             -- Set up nvim-cmp.
             local cmp = require 'cmp'
@@ -99,7 +99,5 @@ return {
         lazy = false,
         -- ft = {'rust' }
     },
-
-
 
 }
