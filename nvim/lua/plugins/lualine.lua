@@ -9,6 +9,13 @@ return {
                 icons_enabled = true,
                 theme = 'iceberg_dark'
 
+            },
+            sections = {
+                lualine_a = {
+                    {
+                        'buffers',
+                    }
+                }
             }
         })
     end,
