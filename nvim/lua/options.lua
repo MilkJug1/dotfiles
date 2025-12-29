@@ -31,8 +31,8 @@ opt.undofile = true
 vim.opt.scrolloff = 8
 
 -- Place a column line
-vim.opt.colorcolumn = "100"
-o.signcolumn = 'yes'
+-- vim.opt.colorcolumn = "100"
+-- o.signcolumn = 'yes'
 
 o.tabstop = 4
 o.shiftwidth = 4
@@ -55,14 +55,18 @@ vim.diagnostic.config({virtual_text= true})
 
 --vim.cmd.colorscheme("duskfox")
 
-vim.o.guifont = "JetBrainsMono Nerd Font:h12"
+-- vim.o.guifont = "JetBrainsMono Nerd Font:h12"
 
 if vim.g.neovide then
     -- vim.g.neovide_transparency = 0.9
-    vim.o.guifont = "JetBrainsMono Nerd Font:h13"
+    -- vim.o.guifont = "JetBrainsMono Nerd Font:h13"
+    -- Geniunely I think I might switch to this font, its fuckin weird but I kinda like it
+    vim.o.guifont = "Monocraft:h13"
 end
 
 vim.filetype.add({
     pattern = { [".*/hyprland%.conf"] = "hyprlang" },
 })
+
+vim.lsp.inlay_hint.enable()
 

@@ -23,6 +23,12 @@ nm('<leader>s', ':lua require("oil").toggle_float()<CR>', 'Opens Oil')
 nm('<leader>gp', ':Gitsigns preview_hunk<CR>', 'Preview Change Hunk')
 nm('<leader>gb', ':Gitsigns toggle_current_line_blame', 'Toggle current line blame for Git')
 
+nm("<C-d>", "<C-d>zz")
+nm("<C-u>", "<C-u>zz")
+nm("<C-f>", "<C-f>zz")
+nm("<C-b>", "<C-b>zz")
+
+
 
 -- TODO: Add Snacks.nvim mappings to here, can replace telescope and a lot of other things.
 -- Telescope mappings
@@ -44,7 +50,7 @@ im('<C-j>', '<Down>')
 im('<C-k>', '<Up>')
 im('<C-l>', '<Right>')
 
--- Undo Tree 
+-- Undo Tree
 nm("<leader>ut", ":UndotreeToggle<cr>", "Toggles UndoTree")
 
 -- LSP  Bindings
@@ -75,18 +81,8 @@ nm('<leader>fd', vim.diagnostic.open_float, "Floating diagnostic")
 nm('gP', require('goto-preview').goto_preview_definition, 'Preview Defintion')
 -- map('n', '<leader>a', vim.cmd.RustLsp('code_action') {silent = true, buffer = bufnr, desc = "Rust code action"})
 -- Nvim Specific keybinds
-local function my_on_attach(bufnr)
-    local ntree = require('nvim-tree.api')
-
-    local function opts(desc)
-        return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
-    end
-
-    ntree.config.mappings.default_on_attach(bufnr)
-
-    map('n', 't', ntree.tree.change_root_to_node, { buffer = bufnr, noremap = true, silent = true, nowait = true })
-end
-
+-- Remap for another plugin to be able to use 'grr' for somethign else
+vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, { desc = "List LSP References from current Buffer", })
 
 
 -- Clear search
@@ -118,7 +114,7 @@ nm('<leader>tt', ":TodoTelescope<cr>", "Opens Telescope for all TODOS")
 -- nm('<leader>iy', ":IconPickerYank<cr>", "Pick Icon and Yank it to buffer")
 -- nm("<leader>in", ":IconPickerNormal<cr>", "Pick Icon and insert it into Buffer (Normal Mode)")
 
-nm("<leader>a", ":lua MiniFiles.open()<cr>", "Mini File explorer" )
+nm("<leader>a", ":lua MiniFiles.open()<cr>", "Mini File explorer")
 
 
 -- Window Bindings
