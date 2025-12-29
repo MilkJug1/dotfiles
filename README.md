@@ -1,7 +1,22 @@
 # dotfiles  
-Just a place to host my dotfiles. This is for my system and other similar systems that I will have, so I cannot guarantee that it will work on other people's systems.
+Just a place to host my configurations for the software that I use. This is for my system and other similar systems that I will have, so I cannot guarantee that it will work on other people's systems.
 
-This will be split into  2 sections, one for Hyprland and the other for Neovim.
+
+Software that I use:
+
+- Neovim
+- Emacs 
+- Hyprland
+- Niri 
+- Ghostty 
+
+Soon, I will add a readme into each folder to show installation instructions, since that currently there is a lot going on.
+
+My Emacs config *will require* [Doom Emacs](https://github.com/doomemacs/doomemacs)
+
+> [!NOTE]
+> I have specific font configurations for specific apps, like Emacs and Neovim, so please, if something isn't displaying properly then check the configs for fonts.
+> I currently use fonts like Monocraft, JetBrainsMono Nerd Font, and Fira Code.
 
 # Hyprland
 
