@@ -19,7 +19,7 @@
 - Easier which-key support 
 - Maybe easier support for AI Models?
 - Mini.nvim support
-
+- Improve Neovide support
 
 ### Editor Stuff TODO
 ~- [ ] Implement Which-key support, and move all plugin bindings to it~
