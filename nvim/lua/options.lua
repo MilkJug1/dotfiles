@@ -27,6 +27,8 @@ opt.completeopt = { "menuone", "noselect" }
 
 opt.undofile = true
 
+opt.splitbelow = true
+opt.splitright = true
 -- Always keep 8 lines above/below cursor unless at start/end of file
 vim.opt.scrolloff = 8
 
@@ -47,6 +49,8 @@ opt.cursorline = true
 opt.autoread = true
 opt.autowrite = true
 opt.showcmd = true
+
+o.winborder = "shadow"
 
 vim.diagnostic.config({virtual_text= true})
 

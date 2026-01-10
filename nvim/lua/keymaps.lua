@@ -128,7 +128,11 @@ nm('+', "<C-w>>", "Increases height of Window")
 nm('-', "<C-w><", "Increases height of Window")
 
 -- Buffer/Window Creation
-nm('<C-v>', "<C-w>v", "Splits window Vertically")
+nm('<C-s>', "<C-w>v", "Splits window Vertically")
+nm("<C-h", "<C-w>s", "Splits Window Horizontally")
+
+nm("<M-q>", "<C-w>q", "Closes window")
+
 
 
 nm('<leader>mo', ":Mason<CR>", "Opens Mason")
