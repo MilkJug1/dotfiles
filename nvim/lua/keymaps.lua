@@ -16,6 +16,12 @@ map('n', ';', ':')
 
 nm('<leader>s', ':lua require("oil").toggle_float()<CR>', 'Opens Oil')
 
+nm("<leader>." ,":Pick files<cr>", "MiniPicker")
+
+-- Help? 
+nm("<leader>h", ":Pick help<cr>", "Search help with mini.picker")
+
+
 --Git keybinds
 
 -- nm('<leader>gg', '<cmd>LazyGit<cr>', "LazyGit")
@@ -128,11 +134,7 @@ nm('+', "<C-w>>", "Increases height of Window")
 nm('-', "<C-w><", "Increases height of Window")
 
 -- Buffer/Window Creation
-nm('<C-s>', "<C-w>v", "Splits window Vertically")
-nm("<C-h", "<C-w>s", "Splits Window Horizontally")
-
-nm("<M-q>", "<C-w>q", "Closes window")
-
+nm('<C-v>', "<C-w>v", "Splits window Vertically")
 
 
 nm('<leader>mo', ":Mason<CR>", "Opens Mason")

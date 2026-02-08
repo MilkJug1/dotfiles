@@ -1,7 +1,7 @@
 return {
 
     {
-        'echasnovski/mini.nvim',
+        'nvim-mini/mini.nvim',
         version = false,
         config = function()
             require("mini.files").setup()
@@ -13,6 +13,8 @@ return {
             require("mini.bracketed").setup()
             require"mini.surround".setup()
             require("mini.map").setup()
+            require("mini.keymap").setup()
+            require("mini.pick").setup()
             -- require("mini.jump2d").setup()
         end
     },

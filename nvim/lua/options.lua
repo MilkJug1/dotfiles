@@ -50,7 +50,7 @@ opt.autoread = true
 opt.autowrite = true
 opt.showcmd = true
 
-o.winborder = "shadow"
+o.winborder = "rounded"
 
 vim.diagnostic.config({virtual_text= true})
 
