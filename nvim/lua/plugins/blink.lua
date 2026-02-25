@@ -25,18 +25,16 @@ return {
 
 				["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
 				["<C-e>"] = { "hide", "fallback" },
-                ["<C-t>"] = {"show", "fallback"},
-
+				["<C-t>"] = { "show", "fallback" },
 
 				["<CR>"] = { "accept", "fallback" },
 			},
 
-            
 			snippets = { preset = "luasnip" },
 
 			sources = {
 				-- add lazydev to your completion providers
-				default = { "lazydev", "lsp", "path", "snippets", "buffer" },
+				default = { "lazydev", "lsp", "path", "buffer", "snippets" },
 				providers = {
 					lazydev = {
 						name = "LazyDev",
@@ -47,15 +45,15 @@ return {
 				},
 			},
 
-			fuzzy = { implementation = "prefer_rust_with_warning" },
-
+			fuzzy = { implementation = "prefer_rust_with_warning", prebuilt_binaries = { download = true } },
 
 			completion = {
 				documentation = { auto_show = true },
 				ghost_text = { enabled = true },
 				menu = {
+					auto_show = true,
 					draw = {
-                        treesitter = {'lsp'},
+						treesitter = { "lsp" },
 						columns = { { "kind_icon", "kind", gap = 1 }, { "label", "label_description" } },
 					},
 				},

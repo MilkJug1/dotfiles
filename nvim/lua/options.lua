@@ -19,6 +19,16 @@ opt.smartindent = true
 opt.shiftwidth = 2
 
 opt.breakindent = true
+opt.autoindent = true
+vim.opt.smartindent = true
+
+vim.opt.updatetime = 300
+vim.opt.autoread = true
+
+vim.opt.hidden = true 
+vim.opt.backspace = "indent,eol,start"
+vim.opt.errorbells = true
+
 
 opt.ignorecase = true
 opt.smartcase = true
@@ -50,10 +60,18 @@ opt.autoread = true
 opt.autowrite = true
 opt.showcmd = true
 
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.opt.foldlevel = 99
+
+vim.opt.wildmenu = true
+vim.opt.wildmode = "longest:full,full"
+vim.opt.redrawtime = 10000
+vim.opt.maxmempattern = 20000
+
 o.winborder = "rounded"
 
 vim.diagnostic.config({virtual_text= true})
-
 
 --vim.cmd("colorscheme duskfox")
 
@@ -72,5 +90,5 @@ vim.filetype.add({
     pattern = { [".*/hyprland%.conf"] = "hyprlang" },
 })
 
-vim.lsp.inlay_hint.enable()
+-- vim.lsp.inlay_hint.enable()
 
