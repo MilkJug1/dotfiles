@@ -12,8 +12,8 @@ function im(key, command, desc)
 end
 
 -- Visual mode
-function vm(key, command)
-	map('v', key, command, { noremap = true })
+function vm(key, command, desc)
+	map('v', key, command, { desc = desc, noremap = true })
 end
 
 -- Terminal mode
