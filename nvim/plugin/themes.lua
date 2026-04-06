@@ -1,6 +1,5 @@
-require("globals")
 
-vim.pack.add({ gh("tiagovla/tokyodark.nvim"), gh("catppuccin/nvim"), gh("EdenEast/nightfox") })
+vim.pack.add({ "https://github.com/tiagovla/tokyodark.nvim", "https://github.com/catppuccin/nvim", "https://github.com/EdenEast/nightfox.nvim" })
 vim.cmd("colorscheme tokyodark")
 require("catppuccin").setup({
 	-- transparent_background = true,

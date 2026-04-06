@@ -1,6 +1,6 @@
 --WARN:  "echasnovski/mini.icons"  MAKE SURE TO INSTALL THAT HERE
 
-vim.pack.add({ gh("nvim-mini/mini.nvim") })
+vim.pack.add({ "https://github.com/nvim-mini/mini.nvim", "https://github.com/echasnovski/mini.icons" })
 
 require("mini.files").setup()
 require("mini.ai").setup()

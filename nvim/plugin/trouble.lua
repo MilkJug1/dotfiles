@@ -1,14 +1,13 @@
 --TODO: Port Trouble over to vim.pack
 --
 --
-require("globals")
 
 vim.pack.add({
-	gh("folke/trouble.nvim"),
-	gh("stevearc/dressing.nvim"),
-	gh("reybits/scratch.nvim"),
-	gh("hedyhli/outline.nvim"),
-	gh("MeanderingProgrammer/render-markdown.nvim"),
+	"https://github.com/folke/trouble.nvim",
+	-- "https://github.com/fstevearc/dressing.nvim",
+	"https://github.com/reybits/scratch.nvim",
+	"https://github.com/hedyhli/outline.nvim",
+	"https://github.com/MeanderingProgrammer/render-markdown.nvim",
 })
 
 vim.keymap.set("n", "<leader>o", "<cmd>Outline<CR>", { desc = "Toggle Outline" })

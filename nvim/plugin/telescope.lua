@@ -1,10 +1,8 @@
-require ("globals")
 
 vim.pack.add({
-	gh("nvim-telescope/telescope.nvim"),
-	gh("nvim-lua/plenary.nvim"),
-	gh("nvim-telescope/telescope-ui-select.nvim"),
-	gh("nvim-telescope/telescope-file-browser"),
+	"https://github.com/nvim-telescope/telescope.nvim",
+	"https://github.com/nvim-lua/plenary.nvim",
+	"https://github.com/nvim-telescope/telescope-ui-select.nvim",
 })
 
 require("telescope").setup({

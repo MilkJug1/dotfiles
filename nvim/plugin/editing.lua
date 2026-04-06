@@ -1,267 +1,148 @@
 -- For plugins that don't fit with LSP stuff, but change or improve the way I write text or code on Neovim.
 --
 --
-return {
+-- Simple plugins with no special config
+vim.pack.add({
+  'https://github.com/rmagatti/logger.nvim',
+  'https://github.com/SmiteshP/nvim-navic',
+"https://github.com/nvim-lua/plenary.nvim",
+  'https://github.com/nvim-tree/nvim-web-devicons',
+  'https://github.com/MunifTanjim/nui.nvim',
+  'https://github.com/rcarriga/nvim-notify',
+  'https://github.com/preservim/vim-pencil',
+  'https://github.com/bullets-vim/bullets.vim',
+  'https://github.com/jbyuki/venn.nvim',
+})
 
-	{
-		"folke/todo-comments.nvim",
-		dependencies = { "nvim-lua/plenary.nvim" },
-	},
+-- Plugins with version pins or branch
+vim.pack.add({
+  { src = 'https://github.com/utilyre/barbecue.nvim'},
+  { src = 'https://github.com/smoka7/hop.nvim'},
+  { src = 'https://github.com/ThePrimeagen/harpoon',   version = 'harpoon2' },
+})
 
-	{
-		"rmagatti/goto-preview",
-		dependencies = { "rmagatti/logger.nvim" },
-		event = "BufEnter",
-		config = true, -- necessary as per https://github.com/rmagatti/goto-preview/issues/88
-	},
+-- Remaining plugins
+vim.pack.add({
+  'https://github.com/folke/todo-comments.nvim',
+  'https://github.com/rmagatti/goto-preview',
+  'https://github.com/lukas-reineke/indent-blankline.nvim',
+  'https://github.com/max397574/better-escape.nvim',
+  'https://github.com/folke/noice.nvim',
+  'https://github.com/j-hui/fidget.nvim',
+  'https://github.com/stevearc/vim-arduino',
+  'https://github.com/folke/zen-mode.nvim',
+  'https://github.com/brenoprata10/nvim-highlight-colors',
+  'https://github.com/folke/flash.nvim',
+  'https://github.com/andweeb/presence.nvim',
+})
 
-	{
-		"lukas-reineke/indent-blankline.nvim",
-		main = "ibl",
-		---@module "ibl"
-		---@type ibl.config
-		opts = {},
-	},
+-- ── Setup calls ────────────────────────────────────────────────────────────────
 
-	{
-		"utilyre/barbecue.nvim",
-		name = "barbecue",
-		version = "*",
-		dependencies = {
-			"SmiteshP/nvim-navic",
-			"nvim-tree/nvim-web-devicons", -- optional dependency
-		},
-		opts = {
-			-- configurations go here
-		},
-	},
+require('todo-comments').setup()
 
-	-- lua with lazy.nvim
-	{
-		"max397574/better-escape.nvim",
-		config = function()
-			require("better_escape").setup()
-		end,
-	},
+-- goto-preview: config = true in lazy just means call setup() with no args
+vim.api.nvim_create_autocmd('BufEnter', {
+  once = true,
+  callback = function()
+    require('goto-preview').setup()
+  end,
+})
 
-	-- {
-	--     'rcarriga/nvim-notify',
-	--     config = function()
-	--         require('notify').setup({
-	--             background_colour = "#000000",
-	--             fps = 60,
-	--             stages = "fade",
-	--             timeout = 4000,
-	--             top_down = false
-	--         })
-	--     end
-	-- },
+require('ibl').setup()
 
-	{
-		"folke/noice.nvim",
-		event = "VeryLazy",
-		dependencies = {
-			"MunifTanjim/nui.nvim",
-			"rcarriga/nvim-notify",
-		},
-		config = function()
-			require("noice").setup({
-				lsp = {
-					-- override markdown rendering so that **cmp** and other plugins use **Treesitter**
-					override = {
-						["vim.lsp.util.convert_input_to_markdown_lines"] = true,
-						["vim.lsp.util.stylize_markdown"] = true,
-						["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmp
-					},
-				},
-				-- you can enable a preset for easier configuration
-				presets = {
-					bottom_search = true, -- use a classic bottom cmdline for search
-					command_palette = true, -- position the cmdline and popupmenu together
-					long_message_to_split = true, -- long messages will be sent to a split
-					inc_rename = false, -- enables an input dialog for inc-rename.nvim
-					lsp_doc_border = false, -- add a border to hover docs and signature help
-				},
-			})
-		end,
-	},
+require('barbecue').setup()
 
-	-- {
-	--     'lewis6991/gitsigns.nvim',
-	--     config = function()
-	--         require('gitsigns').setup()
-	--     end
-	-- },
-	--
-	{
-		"j-hui/fidget.nvim",
-		opts = {
-			-- options
-		},
-	},
-	{
-		"stevearc/vim-arduino",
-		lazy = false,
-		ft = "arduino",
-	},
+require('better_escape').setup()
 
-	{ "preservim/vim-pencil" },
+-- noice.nvim: was event = "VeryLazy", so defer until after UI is ready
+vim.api.nvim_create_autocmd('User', {
+  pattern = 'VeryLazy',
+  once = true,
+  callback = function()
+    require('noice').setup({
+      lsp = {
+        override = {
+          ['vim.lsp.util.convert_input_to_markdown_lines'] = true,
+          ['vim.lsp.util.stylize_markdown']                = true,
+          ['cmp.entry.get_documentation']                  = true,
+        },
+      },
+      presets = {
+        bottom_search        = true,
+        command_palette      = true,
+        long_message_to_split = true,
+        inc_rename           = false,
+        lsp_doc_border       = false,
+      },
+    })
+  end,
+})
 
-	{
-		"folke/zen-mode.nvim",
-		opts = {
-			-- your configuration comes here
-			-- or leave it empty to use the default settings
-			-- refer to the configuration section below
-		},
-	},
+require('fidget').setup()
 
-	{
-		"brenoprata10/nvim-highlight-colors",
-		config = function()
-			require("nvim-highlight-colors").setup()
-		end,
-	},
+-- vim-arduino: was ft = "arduino", so only load on that filetype
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'arduino',
+  once = true,
+  callback = function()
+    vim.cmd.packadd('vim-arduino')
+  end,
+})
 
-	-- {
-	--     'hedyhli/outline.nvim'
-	-- },
+require('zen-mode').setup()
 
-	-- {
-	--     'echasnovski/mini.surround',
-	--     version = false,
-	--     config = function()
-	--         require('mini.surround').setup();
-	--     end
-	-- },
-	--
-	-- {
-	--     'echasnovski/mini.ai',
-	-- },
+require('nvim-highlight-colors').setup()
 
-	{
-		"folke/flash.nvim",
-		event = "VeryLazy",
-		---@type Flash.Config
-		opts = {},
-        -- stylua: ignore
-        keys = {
-          { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
-          { "S", mode = { "n", "x", "o" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
-          { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
-          { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
-          { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
-        }
-,
-	},
+-- flash.nvim: was event = "VeryLazy"
+    require('flash').setup()
 
-	{
-		"andweeb/presence.nvim",
-		config = function()
-			require("presence").setup({
-				auto_update = true,
-				neovim_image_text = "Kill me",
-			})
-		end,
-	},
+    vim.keymap.set({ 'n', 'x', 'o' }, 's', function() require('flash').jump() end,              { desc = 'Flash' })
+    vim.keymap.set({ 'n', 'x', 'o' }, 'S', function() require('flash').treesitter() end,        { desc = 'Flash Treesitter' })
+    vim.keymap.set('o',               'r', function() require('flash').remote() end,             { desc = 'Remote Flash' })
+    vim.keymap.set({ 'o', 'x' },      'R', function() require('flash').treesitter_search() end, { desc = 'Treesitter Search' })
+    vim.keymap.set('c',               '<c-s>', function() require('flash').toggle() end,         { desc = 'Toggle Flash Search' })
 
-	{
-		"bullets-vim/bullets.vim",
-	},
 
-	{
-		"smoka7/hop.nvim",
-		version = "*",
-		opts = {
-			keys = "etovxqpdygfblzhckisuran",
-		},
-	},
+require('presence').setup({
+  auto_update       = true,
+  neovim_image_text = 'Kill me',
+})
 
-	{
-		"ThePrimeagen/harpoon",
-		branch = "harpoon2",
-		dependencies = { "nvim-lua/plenary.nvim" },
-		config = function()
-			local harpoon = require("harpoon")
+require('hop').setup({
+  keys = 'etovxqpdygfblzhckisuran',
+})
 
-			harpoon:setup({
-				settings = {
-					save_on_toggle = true,
-				},
-			})
-			--NOTE: Make more sensible bindings?
-			-- Done as a way to create a better way to handle buffers
-
-			-- vim.keymap.set("n", "<leader>p", function() harpoon:list():add() end)
-			vim.keymap.set("n", "ta", function()
-				harpoon:list():add()
-			end)
-			vim.keymap.set("n", "to", function()
-				harpoon.ui:toggle_quick_menu(harpoon:list())
-			end)
-
-			vim.keymap.set("n", "<M-q>", function()
-				harpoon:list():select(1)
-			end, { desc = "Jump to Harpoon Selection 1" })
-			vim.keymap.set("n", "<M-w>", function()
-				harpoon:list():select(2)
-			end)
-			vim.keymap.set("n", "<M-e>", function()
-				harpoon:list():select(3)
-			end)
-			vim.keymap.set("n", "<leader>4", function()
-				harpoon:list():select(4)
-			end)
-
-			-- Toggle previous & next buffers stored within Harpoon list
-			vim.keymap.set("n", "tn", function()
-				harpoon:list():prev()
-			end)
-			vim.keymap.set("n", "tp", function()
-				harpoon:list():next()
-			end)
-
-			-- basic telescope configuration
-			local conf = require("telescope.config").values
-			local function toggle_telescope(harpoon_files)
-				local file_paths = {}
-				for _, item in ipairs(harpoon_files.items) do
-					table.insert(file_paths, item.value)
-				end
-
-				require("telescope.pickers")
-					.new({}, {
-						prompt_title = "Harpoon",
-						finder = require("telescope.finders").new_table({
-							results = file_paths,
-						}),
-						previewer = conf.file_previewer({}),
-						sorter = conf.generic_sorter({}),
-					})
-					:find()
-			end
-
-			vim.keymap.set("n", "<leader>th", function()
-				toggle_telescope(harpoon:list())
-			end, { desc = "Open harpoon window" })
-		end,
-	},
-
-	{
-		"mbbill/undotree",
-	},
-
-	{
-		"jbyuki/venn.nvim",
-	},
-
-	-- {
-	--     "code-biscuits/nvim-biscuits",
-	--     dependencies = {
-	--         'nvim-treesitter/nvim-treesitter',
-	--     },
-	--     config = function ()
-	--         require('nvim-biscuits').setup()
-	--     end
-	-- }
-}
+-- -- Harpoon (harpoon2 branch)
+-- local harpoon = require('harpoon')
+-- harpoon:setup({
+--   settings = { save_on_toggle = true },
+-- })
+--
+-- vim.keymap.set('n', 'ta', function() harpoon:list():add() end)
+-- vim.keymap.set('n', 'to', function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
+--
+-- vim.keymap.set('n', '<M-q>', function() harpoon:list():select(1) end, { desc = 'Jump to Harpoon Selection 1' })
+-- vim.keymap.set('n', '<M-w>', function() harpoon:list():select(2) end)
+-- vim.keymap.set('n', '<M-e>', function() harpoon:list():select(3) end)
+-- vim.keymap.set('n', '<leader>4', function() harpoon:list():select(4) end)
+--
+-- vim.keymap.set('n', 'tn', function() harpoon:list():prev() end)
+-- vim.keymap.set('n', 'tp', function() harpoon:list():next() end)
+--
+-- local conf = require('telescope.config').values
+-- local function toggle_telescope(harpoon_files)
+--   local file_paths = {}
+--   for _, item in ipairs(harpoon_files.items) do
+--     table.insert(file_paths, item.value)
+--   end
+--   require('telescope.pickers').new({}, {
+--     prompt_title = 'Harpoon',
+--     finder       = require('telescope.finders').new_table({ results = file_paths }),
+--     previewer    = conf.file_previewer({}),
+--     sorter       = conf.generic_sorter({}),
+--   }):find()
+-- end
+--
+-- vim.keymap.set('n', '<leader>th', function()
+--   toggle_telescope(harpoon:list())
+-- end, { desc = 'Open harpoon window' })

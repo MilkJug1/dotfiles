@@ -2,6 +2,29 @@ require("globals")
 
 local bufnr = vim.api.nvim_get_current_buf()
 
+-- map = vim.api.nvim_set_keymap
+map = vim.keymap.set
+
+-- Normal mode keymap setter
+function nm(key, command, desc, opts)
+	map("n", key, command, { desc = desc, opts = opts })
+end
+
+-- Insert/Input mode
+function im(key, command, desc)
+	map("i", key, command, { desc = desc })
+end
+
+-- Visual mode
+function vm(key, command, desc)
+	map("v", key, command, { desc = desc, noremap = true })
+end
+
+-- Terminal mode
+function tm(key, command, desc)
+	map("t", key, command, { noremap = true, desc = desc })
+end
+
 -- map.set('n', '<leader>f', ':Neotree<CR>')
 map("n", ";", ":")
 -- map('n', '<leader>:l', require("noice").cmd("lua"), {desc = "Opens command line with lua"})
@@ -57,7 +80,7 @@ vm("<A-j>", ":m '>+1<CR>gv=gv", "Move selection down")
 vm("<A-k>", ":m '<-2<CR>gv=gv", "Move selection up")
 
 -- Undo Tree
-nm("<leader>ut", ":UndotreeToggle<cr>", "Toggles UndoTree")
+-- nm("<leader>ut", ":UndotreeToggle<cr>", "Toggles UndoTree")
 
 -- LSP  Bindings
 -- bufmap('<leader>r', vim.lsp.buf.rename)
@@ -86,7 +109,7 @@ nm("K", vim.lsp.buf.hover)
 nm("<leader>fd", vim.diagnostic.open_float, "Floating diagnostic")
 -- Symbols outline
 -- nm('<leader>so', ':SymbolsOutline<cr>', "Opens Symbols Outline UI")
-nm("gP", require("goto-preview").goto_preview_definition, "Preview Defintion")
+-- nm("gP", require("goto-preview").goto_preview_definition, "Preview Defintion")
 -- map('n', '<leader>a', vim.cmd.RustLsp('code_action') {silent = true, buffer = bufnr, desc = "Rust code action"})
 -- Nvim Specific keybinds
 -- Remap for another plugin to be able to use 'grr' for somethign else
@@ -110,8 +133,8 @@ nm("<leader>mt", ":MarkdownPreviewToggle<cr>", "Toggles MarkdownPreview")
 nm("<leader>mk", ":MarkdownPreview solarized-dark<cr>", "MarkdownPreview with solarized Dark theme")
 
 -- TODO-Comments Bindings
-nm("<leader>tn", require("todo-comments").jump_next, "Jumps to the next Todo comment")
-nm("<leader>tp", require("todo-comments").jump_prev, "Jumps to the previous comment")
+-- nm("<leader>tn", require("todo-comments").jump_next, "Jumps to the next Todo comment")
+-- nm("<leader>tp", require("todo-comments").jump_prev, "Jumps to the previous comment")
 nm("<leader>tt", ":TodoTelescope<cr>", "Opens Telescope for all TODOS")
 --
 -- Icon Picker

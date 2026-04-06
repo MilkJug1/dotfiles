@@ -1,6 +1,5 @@
-require("globals")
 
-vim.pack.add({ gh("saecki/crates.nvim"), gh("rust-lang/rust.vim") })
+vim.pack.add({"https://github.com/saecki/crates.nvim", "https://github.com/rust-lang/rust.vim" })
 
 local crates = require("crates")
 crates.setup()

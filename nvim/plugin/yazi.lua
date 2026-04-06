@@ -1,5 +1,4 @@
-require("globals")
-vim.pack.add({ gh("mikavilpas/yazi.nvim") })
+vim.pack.add({ "https://github.com/mikavilpas/yazi.nvim" })
 
 -- 👇 in this section, choose your own keymappings!
 -- {

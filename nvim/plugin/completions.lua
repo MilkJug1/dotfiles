@@ -1,6 +1,6 @@
 -- "numToStr/Comment.nvim", "gelguy/wilder.nvim", "L3MON4D3/LuaSnip",
 
-vim.pack.add({gh("numToStr/Comment.nvim"), gh("gelguy/wilder.nvim"), gh("L3MON4D3/LuaSnip")})
+vim.pack.add({"https://github.com/numToStr/Comment.nvim", "https://github.com/gelguy/wilder.nvim", "https://github.com/L3MON4D3/LuaSnip"})
 
 
 require("Comment").setup()
@@ -86,7 +86,7 @@ require("Comment").setup()
     --         })
     --     end
     --
-    },
+    -- },
 
     -- {
     --     "L3MON4D3/LuaSnip",
