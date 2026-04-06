@@ -1,11 +1,9 @@
-return {
-        'folke/which-key.nvim',
-        event = "VeryLazy",
-        init = function()
-            vim.o.timeout = true
-            vim.o.timeoutlen = 300
-        end,
-}
+require('globals')
+
+vim.pack.add({ gh("folke/which-key.nvim") })
+
+vim.o.timeout = true
+vim.o.timeoutlen = 300
 
 -- local wk = require('which-key')
 -- local lz = require('lazy')

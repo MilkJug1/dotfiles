@@ -1,0 +1,67 @@
+-- Dependencies first, so they're available when blink.cmp loads
+-- NOTE: NVIM has added more LSP support so this may not be needed.
+-- vim.pack.add({
+-- 	{ src = "https://github.com/L3MON4D3/LuaSnip"},
+-- })
+--
+-- vim.pack.add({
+-- 	{ src = "https://github.com/saghen/blink.cmp"},
+-- })
+
+-- Setup runs on LspAttach, mirroring your old `event = { "LspAttach" }`
+-- vim.api.nvim_create_autocmd("LspAttach", {
+-- 	once = true,
+-- 	callback = function()
+-- 		require("blink.cmp").setup({
+-- 			keymap = {
+-- 				preset = "default",
+-- 				["<Tab>"] = { "snippet_forward", "fallback" },
+-- 				["<S-Tab>"] = { "snippet_backward", "fallback" },
+--
+-- 				["<Up>"] = { "select_prev", "fallback" },
+-- 				["<Down>"] = { "select_next", "fallback" },
+-- 				["<C-p>"] = { "select_prev", "fallback" },
+-- 				["<C-n>"] = { "select_next", "fallback" },
+--
+-- 				["<C-b>"] = { "scroll_documentation_up", "fallback" },
+-- 				["<C-f>"] = { "scroll_documentation_down", "fallback" },
+--
+-- 				["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
+-- 				["<C-e>"] = { "hide", "fallback" },
+-- 				["<C-t>"] = { "show", "fallback" },
+--
+-- 				["<CR>"] = { "accept", "fallback" },
+-- 			},
+--
+-- 			snippets = { preset = "luasnip" },
+--
+-- 			sources = {
+-- 				default = { "lazydev", "lsp", "path", "buffer", "snippets" },
+-- 				providers = {
+-- 					lazydev = {
+-- 						name = "LazyDev",
+-- 						module = "lazydev.integrations.blink",
+-- 						score_offset = 100,
+-- 					},
+-- 				},
+-- 			},
+--
+-- 			fuzzy = {
+-- 				implementation = "prefer_rust_with_warning",
+-- 				prebuilt_binaries = { download = true },
+-- 			},
+--
+-- 			completion = {
+-- 				documentation = { auto_show = true },
+-- 				ghost_text = { enabled = true },
+-- 				menu = {
+-- 					auto_show = true,
+-- 					draw = {
+-- 						treesitter = { "lsp" },
+-- 						columns = { { "kind_icon", "kind", gap = 1 }, { "label", "label_description" } },
+-- 					},
+-- 				},
+-- 			},
+-- 		})
+-- 	end,
+-- })

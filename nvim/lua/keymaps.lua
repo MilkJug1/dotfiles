@@ -77,6 +77,8 @@ nm("<leader>la", vim.lsp.buf.add_workspace_folder, "Add a workspace folder")
 nm("<leader>ca", vim.lsp.buf.code_action, "LSP Code Action")
 nm("<leader>ws", vim.lsp.buf.workspace_symbol, "LSP workspace symbol")
 nm("<leader>ls", vim.lsp.buf.signature_help, "LSP Signature help")
+im("<C-S>", vim.lsp.buf.signature_help, "LSP Signature help")
+
 -- nm("K", vim.lsp.buf_request_sync)
 nm("K", vim.lsp.buf.hover)
 -- nm("", vim.lsp.buf.hover, "LSP Hover")

@@ -3,24 +3,23 @@ map = vim.keymap.set
 
 -- Normal mode keymap setter
 function nm(key, command, desc, opts)
-	map('n', key, command, { desc = desc, opts = opts })
+	map("n", key, command, { desc = desc, opts = opts })
 end
 
 -- Insert/Input mode
 function im(key, command, desc)
-	map('i', key, command, { desc = desc })
+	map("i", key, command, { desc = desc })
 end
 
 -- Visual mode
 function vm(key, command, desc)
-	map('v', key, command, { desc = desc, noremap = true })
+	map("v", key, command, { desc = desc, noremap = true })
 end
 
 -- Terminal mode
 function tm(key, command, desc)
-	map('t', key, command, { noremap = true, desc = desc })
+	map("t", key, command, { noremap = true, desc = desc })
 end
-
 
 -- Vim option globals
 cmd = vim.cmd
@@ -33,3 +32,10 @@ o = vim.o
 
 
 
+-- Here to help with vim.pack
+gh = function(x)
+	return "https://github.com/" .. x
+end
+cb = function(x)
+	return "https://codeberg.org/" .. x
+end
