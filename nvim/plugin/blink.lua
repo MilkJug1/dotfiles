@@ -4,9 +4,13 @@
 -- 	{ src = "https://github.com/L3MON4D3/LuaSnip"},
 -- })
 --
--- vim.pack.add({
--- 	{ src = "https://github.com/saghen/blink.cmp"},
--- })
+--
+vim.pack.add({ "https://github.com/saghen/blink.lib", "https://github.com/saghen/blink.cmp" })
+
+require("configs.blink_config")
+-- local cmp = require("blink.cmp")
+-- cmp.build():pwait()
+-- cmp.setup()
 
 -- Setup runs on LspAttach, mirroring your old `event = { "LspAttach" }`
 -- vim.api.nvim_create_autocmd("LspAttach", {

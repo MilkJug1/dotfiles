@@ -14,3 +14,5 @@
 -- require("lazy").setup("plugins")
 --
 --
+
+require("keymaps")

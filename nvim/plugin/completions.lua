@@ -2,7 +2,6 @@
 
 vim.pack.add({"https://github.com/numToStr/Comment.nvim", "https://github.com/gelguy/wilder.nvim", "https://github.com/L3MON4D3/LuaSnip"})
 
-
 require("Comment").setup()
 
     -- {
