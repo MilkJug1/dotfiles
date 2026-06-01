@@ -1,5 +1,6 @@
-
 vim.pack.add({ "https://github.com/stevearc/oil.nvim" })
+
+-- vim.keymap.set("n", "<leader>s", ':lua require("oil").toggle_float()<CR>', {desc = "Opens Oil"})
 
 require("oil").setup({
 	default_file_explorer = true,
@@ -37,4 +38,3 @@ require("oil").setup({
 		border = "rounded",
 	},
 })
-

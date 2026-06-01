@@ -1,5 +1,8 @@
-vim.pack.add({"https://github.com/NeogitOrg/neogit", "https://github.com/sindrets/diffview.nvim", "https://github.com/ibhagwan/fzf-lua"})
-
+vim.pack.add({
+	"https://github.com/NeogitOrg/neogit",
+	"https://github.com/sindrets/diffview.nvim",
+	"https://github.com/ibhagwan/fzf-lua",
+})
 
 -- return {
 --
@@ -18,3 +21,4 @@ vim.pack.add({"https://github.com/NeogitOrg/neogit", "https://github.com/sindret
 --     { "<leader>gg", "<cmd>Neogit<cr>", desc = "Show Neogit UI" }
 --   }
 -- }
+--

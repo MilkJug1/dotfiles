@@ -1,32 +1,27 @@
-require("globals")
-
-local bufnr = vim.api.nvim_get_current_buf()
-
 -- map = vim.api.nvim_set_keymap
-map = vim.keymap.set
 
 -- Normal mode keymap setter
 function nm(key, command, desc, opts)
-	map("n", key, command, { desc = desc, opts = opts })
+	vim.keymap.set("n", key, command, { desc = desc, opts = opts })
 end
 
 -- Insert/Input mode
 function im(key, command, desc)
-	map("i", key, command, { desc = desc })
+	vim.keymap.set("i", key, command, { desc = desc })
 end
 
 -- Visual mode
 function vm(key, command, desc)
-	map("v", key, command, { desc = desc, noremap = true })
+	vim.keymap.set("v", key, command, { desc = desc, noremap = true })
 end
 
 -- Terminal mode
 function tm(key, command, desc)
-	map("t", key, command, { noremap = true, desc = desc })
+	vim.keymap.set("t", key, command, { noremap = true, desc = desc })
 end
 
 -- map.set('n', '<leader>f', ':Neotree<CR>')
-map("n", ";", ":")
+vim.keymap.set("n", ";", ":")
 -- map('n', '<leader>:l', require("noice").cmd("lua"), {desc = "Opens command line with lua"})
 -- File browser with Telescope file browser extension /
 
@@ -49,12 +44,15 @@ nm("<leader>h", ":Pick help<cr>", "Search help with mini.picker")
 -- nm('<leader>gg', '<cmd>LazyGit<cr>', "LazyGit")
 
 nm("<leader>gp", ":Gitsigns preview_hunk<CR>", "Preview Change Hunk")
-nm("<leader>gb", ":Gitsigns toggle_current_line_blame", "Toggle current line blame for Git")
+
+nm("<leader>gi", "<cmd>Neogit<cr>", "Show Neogit UI")
 
 nm("<C-d>", "<C-d>zz")
 nm("<C-u>", "<C-u>zz")
 nm("<C-f>", "<C-f>zz")
 nm("<C-b>", "<C-b>zz")
+
+vim.keymap.set("n", "<leader>re", "<cmd>restart<cr>", { desc = "Restart Neovim (:restart)" })
 
 -- TODO: Add Snacks.nvim mappings to here, can replace telescope and a lot of other things.
 -- Telescope mappings
