@@ -1,9 +1,18 @@
 -- require("options")
+
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+package.loaded["keymaps"] = nil
+require("keymaps")
 require("start")
 require("configs")
 
 -- Mappings file for custom mappings
-require("keymaps")
+--
+
+-- require("keymaps")
+
+require("globals")
 --
 --  vim.api.nvim_create_autocmd("PackChanged", {
 -- 	callback = function(ev)
@@ -14,21 +23,15 @@ require("keymaps")
 -- 	end,
 -- })
 
+require("vim._core.ui2").enable({
+	enable = true,
+})
 
 -- Here to help with vim.pack
-gh = function(x)
-	return "https://github.com/" .. x
-end
-cb = function(x)
-	return "https://codeberg.org/" .. x
-end
-
-
-g.mapleader = ' '
 -- g.maplocalleader = ' '
 -- g.aurora_transparent = 1
 
-o.clipboard = 'unnamedplus'
+o.clipboard = "unnamedplus"
 
 o.number = true
 o.relativenumber = true
@@ -48,10 +51,9 @@ vim.opt.smartindent = true
 vim.opt.updatetime = 300
 vim.opt.autoread = true
 
-vim.opt.hidden = true 
+vim.opt.hidden = true
 vim.opt.backspace = "indent,eol,start"
 vim.opt.errorbells = true
-
 
 opt.ignorecase = true
 opt.smartcase = true
@@ -76,7 +78,7 @@ o.updatetime = 2500
 
 o.termguicolors = true
 
-o.mouse = 'a'
+o.mouse = "a"
 
 opt.cursorline = true
 opt.autoread = true
@@ -94,7 +96,7 @@ vim.opt.maxmempattern = 20000
 
 o.winborder = "rounded"
 
-vim.diagnostic.config({virtual_text= true})
+vim.diagnostic.config({ virtual_text = true })
 
 --vim.cmd("colorscheme duskfox")
 
@@ -103,15 +105,14 @@ vim.diagnostic.config({virtual_text= true})
 -- vim.o.guifont = "JetBrainsMono Nerd Font:h12"
 
 if vim.g.neovide then
-    -- vim.g.neovide_transparency = 0.9
-    -- vim.o.guifont = "JetBrainsMono Nerd Font:h13"
-    -- Geniunely I think I might switch to this font, its fuckin weird but I kinda like it
-    vim.o.guifont = "Monocraft:h13"
+	-- vim.g.neovide_transparency = 0.9
+	-- vim.o.guifont = "JetBrainsMono Nerd Font:h13"
+	-- Geniunely I think I might switch to this font, its fuckin weird but I kinda like it
+	vim.o.guifont = "Monocraft:h13"
 end
 
 vim.filetype.add({
-    pattern = { [".*/hyprland%.conf"] = "hyprlang" },
+	pattern = { [".*/hyprland%.conf"] = "hyprlang" },
 })
 
 -- vim.lsp.inlay_hint.enable()
-
