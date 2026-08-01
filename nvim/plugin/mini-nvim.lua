@@ -2,7 +2,11 @@
 
 vim.pack.add({ "https://github.com/nvim-mini/mini.nvim", "https://github.com/echasnovski/mini.icons" })
 
-require("mini.files").setup()
+require("mini.files").setup({
+	mappings = {
+		synchronize = "y",
+	},
+})
 require("mini.ai").setup()
 require("mini.comment").setup()
 require("mini.move").setup()
@@ -14,4 +18,3 @@ require("mini.map").setup()
 require("mini.keymap").setup()
 require("mini.pick").setup()
 -- require("mini.jump2d").setup()
-

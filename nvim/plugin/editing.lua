@@ -169,6 +169,6 @@ require("hop").setup({
 -- 		:find()
 -- end
 
-vim.keymap.set("n", "<leader>th", function()
-	toggle_telescope(harpoon:list())
-end, { desc = "Open harpoon window" })
+-- vim.keymap.set("n", "<leader>th", function()
+-- 	toggle_telescope(harpoon:list())
+-- end, { desc = "Open harpoon window" })

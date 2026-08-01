@@ -2,26 +2,12 @@
 
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
-package.loaded["keymaps"] = nil
+
 require("keymaps")
 require("start")
 require("configs")
 
--- Mappings file for custom mappings
---
-
--- require("keymaps")
-
 require("globals")
---
---  vim.api.nvim_create_autocmd("PackChanged", {
--- 	callback = function(ev)
--- 		local name, kind = ev.data.spec.name, ev.data.kind
--- 		if name == "nvim-treesitter" and kind == "update" then
--- 			vim.cmd("TSUpdate")
--- 		end
--- 	end,
--- })
 
 require("vim._core.ui2").enable({
 	enable = true,
@@ -102,13 +88,14 @@ vim.diagnostic.config({ virtual_text = true })
 
 --vim.cmd.colorscheme("duskfox")
 
--- vim.o.guifont = "JetBrainsMono Nerd Font:h12"
+vim.o.guifont = "MiraCode:h12"
 
 if vim.g.neovide then
 	-- vim.g.neovide_transparency = 0.9
 	-- vim.o.guifont = "JetBrainsMono Nerd Font:h13"
+	vim.o.guifont = "MiraCode:h14"
 	-- Geniunely I think I might switch to this font, its fuckin weird but I kinda like it
-	vim.o.guifont = "Monocraft:h13"
+	-- vim.o.guifont = "Monocraft:h13"
 end
 
 vim.filetype.add({

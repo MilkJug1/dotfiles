@@ -80,13 +80,10 @@ vm("<A-k>", ":m '<-2<CR>gv=gv", "Move selection up")
 -- Undo Tree
 -- nm("<leader>ut", ":UndotreeToggle<cr>", "Toggles UndoTree")
 
--- LSP  Bindings
--- bufmap('<leader>r', vim.lsp.buf.rename)
--- bufmap('<leader>a', vim.lsp.buf.code_action)
--- bufmap('gd', vim.lsp.buf.definition)
--- bufmap('gD', vim.lsp.buf.declaration)
--- bufmap('gI', vim.lsp.buf.implementation)
--- bufmap('<leader>D', vim.lsp.buf.type_definition) vim.lsp.b
+nm("<leader>pm", function()
+	require("mini.map").MiniMap.toggle()
+end, "Toggle MiniMap")
+
 --
 nm("<leader>fm", "<cmd>lua vim.lsp.buf.format{async=true}<cr>", "Format File with LSP")
 -- map('n', 'gd', vim.lsp.buf.definition, { desc = "Goto definition" })
@@ -106,11 +103,6 @@ nm("K", vim.lsp.buf.hover)
 -- nm('<C-a>', require('cmp').mapping.open_docs, "LSP Open Docs")
 nm("<leader>fd", vim.diagnostic.open_float, "Floating diagnostic")
 -- Symbols outline
--- nm('<leader>so', ':SymbolsOutline<cr>', "Opens Symbols Outline UI")
--- nm("gP", require("goto-preview").goto_preview_definition, "Preview Defintion")
--- map('n', '<leader>a', vim.cmd.RustLsp('code_action') {silent = true, buffer = bufnr, desc = "Rust code action"})
--- Nvim Specific keybinds
--- Remap for another plugin to be able to use 'grr' for somethign else
 vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, { desc = "List LSP References from current Buffer" })
 
 -- Clear search
@@ -124,21 +116,17 @@ nm("<leader>vs", "<cmd>vsplit<cr>", "Verticle Split")
 -- nm('<leader>tf', ":lua require('FTerm').toggle()<cr>", "Toggle Term(Floating)")
 tm("<Esc>", "<C-\\><C-N>")
 
--- Markdown bindings
-nm("<leader>ms", ":MarkdownPreview<CR>", "MarkdownPreview")
-nm("<leader>md", ":MarkdownPreviewStop<cr>", "Stop Markdown Preview")
-nm("<leader>mt", ":MarkdownPreviewToggle<cr>", "Toggles MarkdownPreview")
-nm("<leader>mk", ":MarkdownPreview solarized-dark<cr>", "MarkdownPreview with solarized Dark theme")
+-- -- Markdown bindings
+-- nm("<leader>ms", ":MarkdownPreview<CR>", "MarkdownPreview")
+-- nm("<leader>md", ":MarkdownPreviewStop<cr>", "Stop Markdown Preview")
+-- nm("<leader>mt", ":MarkdownPreviewToggle<cr>", "Toggles MarkdownPreview")
+-- nm("<leader>mk", ":MarkdownPreview solarized-dark<cr>", "MarkdownPreview with solarized Dark theme")
 
 -- TODO-Comments Bindings
 -- nm("<leader>tn", require("todo-comments").jump_next, "Jumps to the next Todo comment")
 -- nm("<leader>tp", require("todo-comments").jump_prev, "Jumps to the previous comment")
 nm("<leader>tt", ":TodoTelescope<cr>", "Opens Telescope for all TODOS")
 --
--- Icon Picker
--- im("<C-i>", ':IconPickerInsert emoji nerd_font alt_font symbols<cr>', "Inserts icon while in Insert Mode")
--- nm('<leader>iy', ":IconPickerYank<cr>", "Pick Icon and Yank it to buffer")
--- nm("<leader>in", ":IconPickerNormal<cr>", "Pick Icon and insert it into Buffer (Normal Mode)")
 
 nm("<leader>a", ":lua MiniFiles.open()<cr>", "Mini File explorer")
 
