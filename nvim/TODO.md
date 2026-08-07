@@ -21,6 +21,16 @@
 - Mini.nvim support
 - Improve Neovide support
 
+# Nvim 0.12 Stuff:
+- [x] Start migrating to `vim.pack`
+    - It's mostly been migrated, just actually have to use it and make sure that I don't load all plugins at once.
+- [ ] fix Keymapping
+- [ ] fix lsp [50%]
+    - [x] Autocomplete
+    - [ ] Working with all languages (That I use ofc)
+- [ ] Fix structure
+    I think I might just put all of the plugins into one single file but section each of it off, tho not sure at the moment.
+
 ### Editor Stuff TODO
 ~- [ ] Implement Which-key support, and move all plugin bindings to it~
 - [ ] Blink.cmp? Start configuring that to Nvim (Kinda done so far)

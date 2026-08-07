@@ -1,5 +1,10 @@
 # My Neovim Config
 
+>[!CAUTION]
+> You are currently on the new 0.12 Neovim Rewrite of my dotfiles, my config is still kind of broken and is not in a very stable spot currently.
+> EVERYTHING REGARDING MY NEOVIM CONFIG IS CURRENTLY BROKEN, IT WILL BE UNDERGOING SEVERE CHANGES.
+
+
 >[!WARNING]
 > This is my personal config, it may or may not work for you if you are to use it, please consult the actual config before using.
 > Take a look at the bindings inside of `keymaps.lua` or other places inside of the config before using.

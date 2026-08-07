@@ -34,7 +34,7 @@
 ;; `load-theme' function. This is the default:
 (setq doom-theme 'doom-tokyo-night)
 
-(setq doom-font (font-spec :family "Monocraft" :size 18))
+(setq doom-font (font-spec :family "Monocraft" :size 16))
 
 (setq user-full-name "Michael Crawford"
       user-mail-address "michael.sagan.crawford@gmail.com")
@@ -120,7 +120,7 @@
 
                ;; zig projects
                ((or (locate-dominating-file dir "build.zig")
-                    (locate-dominating-file dir "build.zig.zon"))
+                    (locate-dominating-file dir "build.zig.zong"))
                 (cons 'transient (or (locate-dominating-file dir "build.zig")
                                      (locate-dominating-file dir "build.zig.zon"))))
 
@@ -191,9 +191,9 @@
   (add-to-list 'eglot-server-programs
                '(text-mode . ("harper-ls" "--stdio"))))
 
-;; (setq gptel-model 'llama3.1:8b)
+(setq gptel-model 'llama3.1:8b)
 
-;; (gptel-make-ollama "Ollama"             ;Any name of your choosing
-;;   :host "localhost:11434"               ;Where it's running
-;;   :stream t                             ;Stream responses
-;;   :models '(qwen3:8b llama3.1:8b deepseek-r1:7b:))          ;List of models
+(gptel-make-ollama "Ollama"             ;Any name of your choosing
+  :host "localhost:11434"               ;Where it's running
+  :stream t                             ;Stream responses
+  :models '(qwen3:8b llama3.1:8b deepseek-r1:7b:))          ;List of models

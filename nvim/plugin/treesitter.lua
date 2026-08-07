@@ -1,4 +1,6 @@
 
+vim.pack.add({ "https://github.com/nvim-treesitter/nvim-treesitter" })
+
 local ensure_installed = {
     "vim",
     "vimdoc",
@@ -50,12 +52,8 @@ vim.api.nvim_create_autocmd("FileType", {
     end,
 })
 
--- local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
--- parser_config.hypr = {
---   install_info = {
---     url = "https://github.com/luckasRanarison/tree-sitter-hypr",
---     files = { "src/parser.c" },
---     branch = "master",
---   },
---   filetype = "hypr",
--- }
+
+
+-- BUG: MAKE SURE TO FIND TIME TO CHANGE TREESITER, REPO HAS BEEN ARCHIVED BECAUSE OF AN UNGRATEFUL PERSON TO A VERY GOOD MAINTAINER
+--
+
